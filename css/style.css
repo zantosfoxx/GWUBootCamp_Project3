@@ -1,0 +1,121 @@
+/* Your custom CSS here */
+#map
+{
+    height: 600px;
+    width: auto;
+    max-width: 100%;
+    display: block;
+}
+
+.map-container{
+    max-width: 60em;
+    padding: 0.2em;
+}
+
+#page-content {
+    display: none;
+}
+
+#loading {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(192, 192, 192, 0.5);
+    background-image: url("https://i.stack.imgur.com/MnyxU.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#map-county1 {
+    height: 600px;
+    width: auto;
+    max-width: 100%;
+    display: block;
+}
+
+#ecosplot{
+    width:auto;
+    height:auto;
+}
+
+
+/* CSS from the Leaflet-Choropleth documentation */
+
+
+body {
+    padding: 0;
+    margin: 0;
+  }
+  
+  #map,
+  body,
+  html {
+    height: 100%;
+  }
+  
+  .leaflet-popup-content {
+    text-align: center;
+  }
+  
+  /* CSS from the Leaflet-Choropleth documentation */
+  .legend {
+    padding: 6px 8px;
+    font: 12px Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #555;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .legend ul {
+    padding: 0;
+    margin: 0;
+    clear: both;
+    list-style-type: none;
+  }
+  
+  .legend li {
+    display: inline-block;
+    width: 30px;
+    height: 22px;
+  }
+  
+  .legend .min {
+    float: left;
+    padding-bottom: 5px;
+  }
+  
+  .legend .max {
+    float: right;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+
+  /* CSS from the Leaflet-Choropleth documentation ENDS */
+
+  /*Vera plots*/
+
+  #homeValues{
+    width:auto;
+    height:600px;
+}
+
+#rentalPricing{
+    width:auto;
+    height:600px;
+}
+
+#housingMap {
+    height: 600px;
+    width: auto;
+    max-width: 100%;
+    display: block;
+}
