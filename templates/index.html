@@ -14,16 +14,22 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
-    <title>Investment Value Guide</title>
+    <!--CSS-->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    
+    
    
     <!-- Plotly JS -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <link rel="shortcut icon" type="image/jpg" href="{{ url_for('static', filename='Images/favicon.jpg') }}"/>
 
-     <!--Ecos-Meakin-->
-  <!-- <script src="{{ url_for('static', filename='js/app.js') }}" defer></script> -->
+    <!-- D3 JS -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
 
-            
+    <!--Ecos-Meakin-->
+    <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+
+    <title>Investment Value Guide</title>        
   </head>
   <body>
       
@@ -52,7 +58,7 @@
     <div class="jumbotron jumbotron-fluid"></div>
     
     <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" tabindex="0">
-      <h4 id="">Is Gold still the best preserver of value? If not, what is? Your investment? {MEAKIN TESTING}</h4>
+      <h4 id="">Is Gold still the best preserver of value? If not, what is? Your investment?</h4>
       <div class="jumbotron jumbotron-fluid">
           <h1 class="display-4"></h1>
           <img src="{{ url_for('static', filename='Images/profit.jpg')}}" class="card-img-top" alt="..."></div>
@@ -122,20 +128,20 @@
           <div class="container fluid">
             <div class="row">
               <div class="col-6">
-                <div class="p-3 border bg-light">line plot of gold---</div>
-                <img src="{{ url_for('static', filename='Images/python-boxplot-1.png')}}" class="card-img-top" alt="..."></div>
+                <div class="p-3 border bg-light" id="gold_plot" >line plot of gold---</div>
+                
               </div>
               <div class="col-6 ">
-                <div class="p-3 border bg-light">indicator for misery index</div>
-                <div id="gold_plot"> </div>
+                <div class="p-3 border bg-light" id="investment_plot">Investment Growth</div>
+                
               </div>
             </div>
             <div class="row">
-              <div class="col-4">
-                <div class="p-3 border bg-light">Custom column padding</div>
+              <div class="col-4" >
+                <div class="p-3 border bg-light" id="box_plot">Volatility of Investment</div>
               </div>
               <div class="col-4">
-                <div class="p-3 border bg-light">Custom column padding</div>
+                <div class="border bg-light">Custom column padding</div>
               </div>
               <div class="col-4">
                 <div class="p-3 border bg-light">Custom column padding</div>

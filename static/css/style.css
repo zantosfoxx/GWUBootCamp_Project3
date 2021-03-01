@@ -123,4 +123,14 @@ body {
     display: block;
 }
 
- 
+#gold_plot{
+  height: 20em;
+}
+
+#investment_plot{
+  height: 20em;
+}
+
+#box_plot{
+  height: 20em;
+}
