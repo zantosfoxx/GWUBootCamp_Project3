@@ -244,21 +244,21 @@ function gold(){
           layout2 = {
               title: `Gold & ${ticker} Returns Volatility comparison`,
               yaxis: {
-              //     autorange: true,
-              //     showgrid: true,
-              //     zeroline: true,
-                //  dtick: 2,
-              //     gridcolor: 'rgb(255, 255, 255)',
-                //  gridwidth: 5,
-              //     zerolinecolor: 'rgb(255, 255, 255)',
-              //     zerolinewidth: 2
+                  autorange: true,
+                  showgrid: true,
+                  zeroline: true,
+                 dtick: 2,
+                  gridcolor: 'rgb(255, 255, 255)',
+                 gridwidth: 5,
+                  zerolinecolor: 'rgb(255, 255, 255)',
+                  zerolinewidth: 2
               },
-              // margin: {
-              //     l: 40,
-              //     r: 30,
-              //     b: 80,
-              //     t: 100
-              // },
+              margin: {
+                  l: 40,
+                  r: 30,
+                  b: 80,
+                  t: 100
+              },
               paper_bgcolor: 'rgb(243, 243, 243)',
               plot_bgcolor: 'rgb(243, 243, 243)',
               showlegend: false
