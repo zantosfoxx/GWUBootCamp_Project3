@@ -28,6 +28,7 @@
 
     <!--Ecos-Meakin-->
     <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/stress_test.js') }}" defer></script>
 
     <title>Investment Value Guide</title>        
   </head>
@@ -138,14 +139,14 @@
             </div>
             <div class="row">
               <div class="col-4" >
-                <div class="p-3 border bg-light" id="box_plot">Volatility of Investment</div>
+                <div class="p-3 border bg-light" >Volatility of Investment</div>
               </div>
-              <div class="col-4">
-                <div class="border bg-light">Custom column padding</div>
+            </div>
+            <div class = 'row'>
+              <div class="col-12">
+                <div class="border bg-light" id = 'decline_plot'>Custom column padding</div>
               </div>
-              <div class="col-4">
-                <div class="p-3 border bg-light">Custom column padding</div>
-              </div>
+              
             </div>
           </div>
       </div>
