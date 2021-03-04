@@ -35,9 +35,17 @@
      <!-- D3 JS -->
      <script src="https://d3js.org/d3.v6.min.js"></script>
 
+      <!-- Daterange picker -->
+    <link href="{{ url_for('static', filename='./vendor/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
+
+    <!-- Ticker Selection -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='./vendor/select2/css/select2.min.css')}}">
+
      <!--Ecos-Meakin-->
     <script src="{{ url_for('static', filename='./js/app.js')}}" defer></script>
     <script src="{{ url_for('static', filename='./js/stress_test.js')}}" defer></script>
+
+
 
 </head>
 
@@ -196,6 +204,63 @@
             Sidebar start
         ***********************************-->
         <div class="quixnav">
+            <div class = "row"> <!-- ticker symbol starts -->
+            <div class="col-lg-10">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <h4 class="card-title">Select Your Company</h4>
+                            <p>Search for ticker symbol</p>
+                        </div>
+
+                        <select id="single-select">
+                            <option value="AL">AAPL</option>
+                            <option value="WY">FB</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- ticker symbol starts -->
+            <div class="card-body"> <!-- investment amount starts -->
+                <div class="form-validation">
+                    <form class="form-valide" action="#" method="post">
+                        <div class="form-group row"> 
+                            <label class="col-lg-10 col-form-label" for="val-number">Investment Amount ($) <span
+                                    class="text-danger">*</span>
+                            </label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="val-number" name="val-number" placeholder="1000">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div> <!-- investment amount ends -->
+           <div class="col-md-10 col-lg-10">  <!-- Date picker starts -->
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Select Past Investment Period</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="example">
+                                    <p class="mb-1">Date Range Pick</p>
+                                    <input class="form-control input-daterange-datepicker" type="text" name="daterange" value="01/01/2015 - 01/31/2015">
+                                </div>
+                            </div>
+                            
+                          
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Date picker ends -->
+
+            <!-- Submitt button starts -->
+            <div class="form-group row">
+                <div class="col-lg-8 ml-auto">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div> <!-- Submitt button ends -->
             <div class="quixnav-scroll">
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
@@ -903,7 +968,7 @@
         ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Quixkit</a> 2019</p>
+                <p>Copyright © Designed TeamLogic; Developed by <a href="#" target="_blank">Quixkit</a> 2019</p>
             </div>
         </div>
         <!--**********************************
@@ -931,6 +996,7 @@
     <script src="{{ url_for('static', filename='./vendor/global/global.min.js')}}"></script>
     <script src="{{ url_for('static', filename='./js/quixnav-init.js')}}"></script>
     <script src="{{ url_for('static', filename='./js/custom.min.js')}}"></script>
+  
 
 
     <!-- Vectormap -->
@@ -957,6 +1023,31 @@
 
 
     <script src="{{ url_for('static', filename='./js/dashboard/dashboard-1.js')}}"></script>
+
+     <!-- Required vendors -->
+     <script src="{{ url_for('static', filename='./vendor/global/global.min.js')}}"></script>
+     <script src="{{ url_for('static', filename='./js/custom.min.js')}}"></script>
+     
+ 
+ 
+     <!-- Daterangepicker -->
+     <!-- momment js is must -->
+     <script src="{{ url_for('static', filename='./vendor/moment/moment.min.js')}}"></script>
+     <script src="{{ url_for('static', filename='./vendor/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+
+     <!-- Daterangepicker -->
+     <script src="{{ url_for('static', filename='./js/plugins-init/bs-daterange-picker-init.js')}}"></script>
+
+     <!-- Jquery Validation -->
+    <script src="{{ url_for('static', filename='./vendor/jquery-validation/jquery.validate.min.js')}}"></script>
+    <!-- Form validate init -->
+    <script src="{{ url_for('static', filename='./js/plugins-init/jquery.validate-init.js')}}"></script>
+
+    <!-- Ticker selection -->
+    <script src="{{ url_for('static', filename='./vendor/select2/js/select2.full.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='./js/plugins-init/select2-init.js')}}"></script>
+
+    
 
 
 
