@@ -13,12 +13,12 @@ var app_ticker = "/ticker_returns"
 function Initialize() {
   var value = 1000;
   var ticker = "AAPL"
-  var inv_startdate = `2018-10-19`
+  var inv_startdate = `2019-10-19`
   var  inv_enddate = `2020-02-05`
   prices(ticker)
   //gold(ticker, inv_startdate, inv_enddate, value)
   decline(ticker, inv_startdate, inv_enddate, value)
-  volatility(ticker)
+  //volatility(ticker)
   //console.log(`Initialise is running`)
 };
 Initialize();

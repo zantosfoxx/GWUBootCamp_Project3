@@ -1,5 +1,5 @@
 import json
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request, make_response, redirect
 import pandas as pd
 import os
 import requests
@@ -34,12 +34,54 @@ def index():
     return render_template('index.html')
 
     #=======MEAKIN STARTS==========
+@app.route("/ticker_test", methods = ["POST"])
+def ticker_test(): 
+    inputs = request.get_json()
+    
+
+    response = make_response(jsonify({'message': 'flask is running on POST method'}), 200)
+    quandl.ApiConfig.api_key = API_key
+    # start_date = '2019-10-19'
+    # end_date = '2020-02-05'
+    # ticker = "AAPL"
+
+    inputs = request.get_json()
+    ticker = inputs["ticker"]
+    start_date = inputs["start_date"]
+    end_date = inputs["end_date"]
+    
+
+    #print(start_date)
+
+    response = make_response(jsonify({'message': 'flask is running on POST method'}), 200)
+   
+    EOD = quandl.get(f'EOD/{ticker}', start_date = f'{start_date}', end_date = f'{end_date}').reset_index()
+    EOD['Returns'] =EOD['Close'].pct_change(1)
+    EOD["Cum_returns"] = (EOD['Returns']+1).cumprod()
+    EOD.head()
+
+    EOD =EOD[['Date','Open', 'High', 'Low', 'Returns', 'Cum_returns']]
+    EOD['Date'] = EOD['Date'].dt.strftime('%Y-%m-%d')
+
+    data_data = EOD.to_json(orient="records")
+
+    return data_data
 
 @app.route("/ticker_returns")
 def ticker_returns():
     quandl.ApiConfig.api_key = API_key
-    start_date = '2008-01-01'
-    EOD = quandl.get('EOD/AAPL', start_date = start_date).reset_index()
+    start_date = '2019-10-19'
+    end_date = '2020-02-05'
+    ticker = "AAPL"
+
+    # inputs = request.get_json()
+    # print(inputs)
+
+    response = make_response(jsonify({'message': 'flask is running on POST method'}), 200)
+   
+   
+
+    EOD = quandl.get(f'EOD/{ticker}', start_date = f'{start_date}', end_date = f'{end_date}').reset_index()
     EOD['Returns'] =EOD['Close'].pct_change(1)
     EOD["Cum_returns"] = (EOD['Returns']+1).cumprod()
     EOD.head()
