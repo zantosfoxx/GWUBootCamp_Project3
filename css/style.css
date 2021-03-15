@@ -119,3 +119,17 @@ body {
     max-width: 100%;
     display: block;
 }
+
+#gold_plot{
+  min-height;: 10em
+
+
+}
+
+#investment_plot{
+  min-height: 10em
+}
+
+#box_plot{
+  max-height: 10em
+}
