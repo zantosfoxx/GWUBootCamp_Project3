@@ -153,51 +153,51 @@ def prime_rate():
             bbox_inches='tight')
 
 
-    #Misery index
-    Misery_index = quandl.get("USMISERY/INDEX", authtoken = API_key)
+    # #Misery index
+    # Misery_index = quandl.get("USMISERY/INDEX", authtoken = API_key)
 
-    #reset index
-    Misery_index_df=Misery_index.reset_index()
+    # #reset index
+    # Misery_index_df=Misery_index.reset_index()
     
-    # Filter data for 15 years
-    Misery_index_filtered = Misery_index_df.loc[(Misery_index_df['Date'] >= '2006-01-01') ]
-    #set index
-    Misery_index_filtered_df = Misery_index_filtered.set_index('Date')   
+    # # Filter data for 15 years
+    # Misery_index_filtered = Misery_index_df.loc[(Misery_index_df['Date'] >= '2006-01-01') ]
+    # #set index
+    # Misery_index_filtered_df = Misery_index_filtered.set_index('Date')   
 
-    # GROUP THE MISERY INDEX BY YEAR AND AGRREGATE BY AVERAGE
-    misery_index_grouped_avg = Misery_index_filtered_df.groupby(lambda x: x.year)['Misery Index'].agg(['mean'])            
+    # # GROUP THE MISERY INDEX BY YEAR AND AGRREGATE BY AVERAGE
+    # misery_index_grouped_avg = Misery_index_filtered_df.groupby(lambda x: x.year)['Misery Index'].agg(['mean'])            
    
-    # PLOT PRIME RATE AND MISERY INDEX
-    # create bar plot for misery index
-    # create line plot for prime rate
-    fig = plt.figure(figsize=(10,6))
-    ax = Misery_index_filtered_df['Misery Index'].plot(kind='bar', use_index=True,color='blue')
-    ax.set_title('prime rate compared to misery index', fontsize=16)
-    ax.set_xlabel('Date', fontsize=16)
-    ax.set_ylabel('misery index', fontsize=16, color='blue')
+    # # PLOT PRIME RATE AND MISERY INDEX
+    # # create bar plot for misery index
+    # # create line plot for prime rate
+    # fig = plt.figure(figsize=(10,6))
+    # ax = Misery_index_filtered_df['Misery Index'].plot(kind='bar', use_index=True,color='blue')
+    # ax.set_title('prime rate compared to misery index', fontsize=16)
+    # ax.set_xlabel('Date', fontsize=16)
+    # ax.set_ylabel('misery index', fontsize=16, color='blue')
 
-    ax2 = ax.twinx()
-    ax2.plot(filtered_prime_rate_df['MPRIME'].values, linestyle='-', linewidth=2.0, color='red')
-    ax2.set_xlabel('Date', fontsize=16)
-    ax2.set_ylabel('rate(%)', fontsize=16, color='red')
+    # ax2 = ax.twinx()
+    # ax2.plot(filtered_prime_rate_df['MPRIME'].values, linestyle='-', linewidth=2.0, color='red')
+    # ax2.set_xlabel('Date', fontsize=16)
+    # ax2.set_ylabel('rate(%)', fontsize=16, color='red')
 
-    # change prime rate Dataframe to json
-    data_data = filtered_prime_rate_df.to_json(orient="records") 
+    # # change prime rate Dataframe to json
+    # data_data = filtered_prime_rate_df.to_json(orient="records") 
     
-    return data_data
+    # return data_data
     
-    #change oil Data to json
-    data_data = filtered_oil_prices_df.to_json(orient ="records")
+    # #change oil Data to json
+    # data_data = filtered_oil_prices_df.to_json(orient ="records")
     
-    return data_data
+    # return data_data
 
-    # change misery data to json
-    data_data = Misery_index_filtered_df.to_json(orient = "records")
+    # # change misery data to json
+    # data_data = Misery_index_filtered_df.to_json(orient = "records")
     
-    return data_data
+    # return data_data
 
     
-    #=======Nick Ends==============
+    # #=======Nick Ends==============
 
 if __name__ == "__main__":
     app.run(debug=True)
