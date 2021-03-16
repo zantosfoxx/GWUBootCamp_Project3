@@ -68,6 +68,7 @@ def gold_returns():
     return data_data 
 
     #=======MEAKIN ENDS============
+    #=======MEAKIN VERA STARTS============
 
 
 if __name__ == "__main__":

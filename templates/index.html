@@ -3,7 +3,13 @@
 <!-- current HTML -->
 
 <head>
-    <!--start of carousel-->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>TeamLogic - Investors Guide </title>
+
+    <!--Carousel-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -11,10 +17,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>TeamLogic - Investment Value Guide </title>
     <!-- Favicon icon -->
 
     <link rel="stylesheet" href="{{ url_for('static', filename='./vendor/owl-carousel/css/owl.carousel.min.css')}}">
@@ -86,230 +88,113 @@
         Preloader end
     ********************-->
 
-
-    <!--*******************
-        Preloader end/ Start of Carousel
-    ********************-->
-    <!--Starts of Carousel-->
-    <h1 class="display-4 text-center text-dark mb-5"></h1>
-    <div class="container-fluid">
-        <div id="magicCarousel" class="carousel slide my-5" data-ride="carousel">
-
-            <!--    Carousel Indicators    -->
-            <!--ol class="carousel-indicators">
-            <li data-target="#magicCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#magicCarousel" data-slide-to="1"></li>
-            <li data-target="#magicCarousel" data-slide-to="2"></li>
-            <li data-target="#magicCarousel" data-slide-to="3"></li>
-        </ol-->
-
-            <!--    Carousel Slider    -->
-            <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                    <img src="{{ url_for('static', filename='Images/grow.jpg')}}" class="d-block w-100">
-                    <div class="carousel-caption">
-                        <h3>Wondering if your current investment is plant in the best condition for growth?</h3>
-                        <p>Our analysis is our best representation of data retrieved from reputable sources. Use at your
-                            own risk.</p>
-                        <a href="#interactive" class="btn btn-outline-primary">Continue</a>
-
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <img src="{{ url_for('static', filename='Images/money.jpg')}}" class="d-block w-100">
-                    <div class="carousel-caption">
-                        <h3>You received money from inheritance or lottery?</h3>
-                        <p>Our analysis is our best representation of data retrieved from reputable sources. Use at your
-                            own risk.</p>
-                        <a href="#interactive" class="btn btn-outline-primary">Continue</a>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <img src="{{ url_for('static', filename='Images/fire.jpg')}}" class="d-block w-100">
-                    <div class="carousel-caption">
-                        <h3>Is your current investment losing money?</h3>
-                        <p>Our analysis is our best representation of data retrieved from reputable sources. Use at your
-                            own risk.</p>
-                        <a href="#interactive" class="btn btn-outline-primary">Continue</a>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <img src="{{ url_for('static', filename='Images/charts.jpg')}}" class="d-block w-100">
-                    <div class="carousel-caption">
-                        <h3>Sound Analysis at your finger tips</h3>
-                        <p>Our analysis is our best representation of data retrieved from reputable sources. Use at your
-                            own risk.</p>
-                        <a href="#interactive" class="btn btn-outline-primary">Continue</a>
-                    </div>
-                </div>
-
-                <!--     Carousel Controls     -->
-                <a href="#magicCarousel" class="carousel-control-prev" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a href="#magicCarousel" class="carousel-control-next" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-
-            </div>
-        </div>
-    </div>
-    <!--carousel ends-->
-
-
     <!--**********************************
         Main wrapper start
     ***********************************-->
     <div id="main-wrapper">
 
         <!--**********************************
-            Nav header start
-        ***********************************-->
-        <!--div class="nav-header">
-            <a href="index.html" class="brand-logo">
-                <img class="logo-abbr" src="{{ url_for('static', filename='images/logo.png') }}" alt="">
-                <img class="logo-compact" src="{{ url_for('static', filename='images/logo-text.png') }}" alt="">
-                <img class="brand-title" src="{{ url_for('static', filename='images/logo-text.png') }}" alt="">
-            </a>
-
-            <div class="nav-control">
-                <div class="hamburger">
-                    <span class="line"></span><span class="line"></span><span class="line"></span>
-                </div>
-            </div>
-        </div-->
-        <!--**********************************
-            Nav header end
-        ***********************************-->
-
-        <!--**********************************
-            Header start
-        ***********************************-->
-        <!--**********************************
             Header starts
         ***********************************-->
-        <div class="header bg-dark">
-            <div class="header-content">
-                <nav class="navbar navbar-expand">
-                    <div class="collapse navbar-collapse justify-content-end">
-                        <div class="header-left">
-                            <ul class="nav nav-pills">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#interactive">Interactive Dashboard</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#stress">Stress Test</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#link3">link3</a>
-                                </li>
-                            </ul>
-                        </div>
+        <nav class="navbar fixed-top navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='Images/logo.jpg')}}"
+                    class="img-logo" alt="Team Logic!">Investor's Guide</a>
+            <a class="navbar-brand" href="#"></a>
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#interactive-dashboard">Interactive Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#industry-analysis">Industry Analysis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#commodity-analysis">Commodity Analysis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Mortgage-analysis">Mortgage Analysis</a>
+                </li>
+            </ul>
+        </nav>
 
-                        <ul class="navbar-nav header-right">
-                            <li class="nav-item dropdown notification_dropdown">
-                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <i class="mdi mdi-bell"></i>
-                                    <div class="pulse-css"></div>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <ul class="list-unstyled">
-                                        <li class="media dropdown-item">
-                                            <span class="success"><i class="ti-user"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>Martin</strong> has added a <strong>customer</strong>
-                                                        Successfully
-                                                    </p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="primary"><i class="ti-shopping-cart"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>Jennifer</strong> purchased Light Dashboard 2.0.</p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="danger"><i class="ti-bookmark"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>Robin</strong> marked a <strong>ticket</strong> as
-                                                        unsolved.
-                                                    </p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="primary"><i class="ti-heart"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>David</strong> purchased Light Dashboard 1.0.</p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="success"><i class="ti-image"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong> James.</strong> has added a<strong>customer</strong>
-                                                        Successfully
-                                                    </p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                    </ul>
-                                    <a class="all-notification" href="#">See all notifications <i
-                                            class="ti-arrow-right"></i></a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown header-profile">
-                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <i class="mdi mdi-account"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="./app-profile.html" class="dropdown-item">
-                                        <i class="icon-user"></i>
-                                        <span class="ml-2">Profile </span>
-                                    </a>
-                                    <a href="./email-inbox.html" class="dropdown-item">
-                                        <i class="icon-envelope-open"></i>
-                                        <span class="ml-2">Inbox </span>
-                                    </a>
-                                    <a href="./page-login.html" class="dropdown-item">
-                                        <i class="icon-key"></i>
-                                        <span class="ml-2">Logout </span>
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
+        <!--**********************************
+            Carousel starts
+        ***********************************-->
+
+
+
+        <h1 class="display-4 text-center text-dark mb-5"></h1>
+        <div class="container-fluid">
+            <div id="magicCarousel" class="carousel slide my-5" data-ride="carousel">
+
+                <!--    Carousel Slider    -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <img src="{{ url_for('static', filename='Images/grow.jpg')}}" class="d-block w-100">
+                        <div class="carousel-caption">
+                            <h1>Wondering if your current investment is planted in the best condition for growth?</h1>
+                            <p>Our analysis is our best representation of data retrieved from reputable sources. Use at
+                                your
+                                own risk.</p>
+                            <a href="#interactive-dashboard" class="btn btn-outline-primary">Continue</a>
+
+                        </div>
                     </div>
-                </nav>
+
+                    <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='Images/money.jpg')}}" class="d-block w-100">
+                        <div class="carousel-caption">
+                            <h1>You received money from inheritance or lottery?</h1>
+                            <p>Our analysis is our best representation of data retrieved from reputable sources. Use at
+                                your
+                                own risk.</p>
+                            <a href="#interactive-dashboard" class="btn btn-outline-primary">Continue</a>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='Images/fire.jpg')}}" class="d-block w-100">
+                        <div class="carousel-caption">
+                            <h1>Is your current investment losing money?</h1>
+                            <p>Our analysis is our best representation of data retrieved from reputable sources. Use at
+                                your
+                                own risk.</p>
+                            <a href="#interactive-dashboard" class="btn btn-outline-primary">Continue</a>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='Images/manchart.jpg')}}" class="d-block w-100">
+                        <div class="carousel-caption">
+                            <h1>Sound Analysis at your finger tips</h1>
+                            <p>Our analysis is our best representation of data retrieved from reputable sources. Use at
+                                your
+                                own risk.</p>
+                            <a href="#interactive-dashboard" class="btn btn-outline-primary">Continue</a>
+                        </div>
+                    </div>
+
+
+                    <!--     Carousel Controls     -->
+                    <a href="#magicCarousel" class="carousel-control-prev" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a href="#magicCarousel" class="carousel-control-next" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+
+                </div>
             </div>
         </div>
         <!--**********************************
            End of Navbar and start of Interative Dashboard (Jea)
         ***********************************-->
-        <h4 id="interactive">Interative Dashboard</h4>
-        <div class="nav bg-dark py-4"></div>
-        <!--start of interactive dashboard-->
-
-
+        <h4 id="interactive-dashboard">Interative Dashboard</h4>
+        <div class="nav bg-dark py-5"></div>
 
         <!--**********************************
             Sidebar start
@@ -363,7 +248,8 @@
                             <div class="form-validation">
                                 <form class="form-valide" action="#" method="post">
                                     <div class="form-group row">
-                                        <label class="col-lg-12 col-form-label" for="val-number">Investment Amount ($)
+                                        <label class="col-lg-12 col-form-label" for="val-number">Investment
+                                            Amount ($)
                                             <span class="text-danger">*</span>
                                         </label>
                                         <div class="col-lg-8">
@@ -402,122 +288,6 @@
                                 <button type="submit" id='submit' class="btn btn-primary">Submit</button>
                             </div>
                         </div> <!-- Submitt button ends -->
-                        <div class="quixnav-scroll">
-                            <ul class="metismenu" id="menu">
-                                <li class="nav-label first">Main Menu</li>
-                                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                            class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
-                                    <ul aria-expanded="false">
-                                        <li><a href="./index.html">Dashboard 1</a></li>
-                                        <li><a href="./index2.html">Dashboard 2</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-label">Apps</li>
-                                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                            class="icon icon-app-store"></i><span class="nav-text">Apps</span></a>
-                                    <ul aria-expanded="false">
-                                        <li><a href="./app-profile.html">Profile</a></li>
-                                        <li><a class="has-arrow" href="javascript:void()"
-                                                aria-expanded="false">Email</a>
-                                            <ul aria-expanded="false">
-                                                <li><a href="./email-compose.html">Compose</a></li>
-                                                <li><a href="./email-inbox.html">Inbox</a></li>
-                                                <li><a href="./email-read.html">Read</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="./app-calender.html">Calendar</a></li>
-                                    </ul>
-                                </li>
-                                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                            class="icon icon-chart-bar-33"></i><span class="nav-text">Charts</span></a>
-                                    <ul aria-expanded="false">
-                                        <li><a href="./chart-flot.html">Flot</a></li>
-
-                                        <li><a href="./chart-chartjs.html">Chartjs</a></li>
-                                        <li><a href="./chart-chartist.html">Chartist</a></li>
-                                        <li><a href="./chart-sparkline.html">Sparkline</a></li>
-                                        <li><a href="./chart-peity.html">Peity</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-label">Components</li>
-                                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                            class="icon icon-world-2"></i><span class="nav-text">Bootstrap</span></a>
-                                    <ul aria-expanded="false">
-                                        <li><a href="./ui-accordion.html">Accordion</a></li>
-                                        <li><a href="./ui-alert.html">Alert</a></li>
-                                        <li><a href="./ui-badge.html">Badge</a></li>
-                                        <li><a href="./ui-button.html">Button</a></li>
-                                        <li><a href="./ui-modal.html">Modal</a></li>
-                                        <li><a href="./ui-button-group.html">Button Group</a></li>
-                                        <li><a href="./ui-list-group.html">List Group</a></li>
-                                        <li><a href="./ui-media-object.html">Media Object</a></li>
-                                        <li><a href="./ui-card.html">Cards</a></li>
-                                        <li><a href="./ui-carousel.html">Carousel</a></li>
-                                        <li><a href="./ui-dropdown.html">Dropdown</a></li>
-                                        <li><a href="./ui-popover.html">Popover</a></li>
-                                        <li><a href="./ui-progressbar.html">Progressbar</a></li>
-                                        <li><a href="./ui-tab.html">Tab</a></li>
-                                        <li><a href="./ui-typography.html">Typography</a></li>
-                                        <li><a href="./ui-pagination.html">Pagination</a></li>
-                                        <li><a href="./ui-grid.html">Grid</a></li>
-
-                                    </ul>
-                                </li>
-
-                                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                            class="icon icon-plug"></i><span class="nav-text">Plugins</span></a>
-                                    <ul aria-expanded="false">
-                                        <li><a href="./uc-select2.html">Select 2</a></li>
-                                        <li><a href="./uc-nestable.html">Nestedable</a></li>
-                                        <li><a href="./uc-noui-slider.html">Noui Slider</a></li>
-                                        <li><a href="./uc-sweetalert.html">Sweet Alert</a></li>
-                                        <li><a href="./uc-toastr.html">Toastr</a></li>
-                                        <li><a href="./map-jqvmap.html">Jqv Map</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="widget-basic.html" aria-expanded="false"><i
-                                            class="icon icon-globe-2"></i><span class="nav-text">Widget</span></a></li>
-                                <li class="nav-label">Forms</li>
-                                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                            class="icon icon-form"></i><span class="nav-text">Forms</span></a>
-                                    <ul aria-expanded="false">
-                                        <li><a href="./form-element.html">Form Elements</a></li>
-                                        <li><a href="./form-wizard.html">Wizard</a></li>
-                                        <li><a href="./form-editor-summernote.html">Summernote</a></li>
-                                        <li><a href="form-pickers.html">Pickers</a></li>
-                                        <li><a href="form-validation-jquery.html">Jquery Validate</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-label">Table</li>
-                                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                            class="icon icon-layout-25"></i><span class="nav-text">Table</span></a>
-                                    <ul aria-expanded="false">
-                                        <li><a href="table-bootstrap-basic.html">Bootstrap</a></li>
-                                        <li><a href="table-datatable-basic.html">Datatable</a></li>
-                                    </ul>
-                                </li>
-
-                                <li class="nav-label">Extra</li>
-                                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                            class="icon icon-single-copy-06"></i><span class="nav-text">Pages</span></a>
-                                    <ul aria-expanded="false">
-                                        <li><a href="./page-register.html">Register</a></li>
-                                        <li><a href="./page-login.html">Login</a></li>
-                                        <li><a class="has-arrow" href="javascript:void()"
-                                                aria-expanded="false">Error</a>
-                                            <ul aria-expanded="false">
-                                                <li><a href="./page-error-400.html">Error 400</a></li>
-                                                <li><a href="./page-error-403.html">Error 403</a></li>
-                                                <li><a href="./page-error-404.html">Error 404</a></li>
-                                                <li><a href="./page-error-500.html">Error 500</a></li>
-                                                <li><a href="./page-error-503.html">Error 503</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="./page-lock-screen.html">Lock Screen</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
                 <!--**********************************
@@ -547,7 +317,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-3 col-sm-6">
-                                <div class="card">Z
+                                <div class="card">
                                     <div class="stat-widget-two card-body">
                                         <div class="stat-content">
                                             <div class="stat-text">Income Detail</div>
@@ -592,184 +362,216 @@
                             <!-- /# column -->
                         </div>
                         <!--**********************************
-                                         End of Cards/Start of tabs
-                                    ***********************************-->
-                        <div class="col-lg-10 col-sm-8">
-                            <ul class="nav nav-tabs">
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="#Stock-Market-decline">US Market Decline</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#Stock-Market-gains">US Market Gains</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#Interest-Rate-Rises">Rising Interest Rates</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#Interest-Rate-falling">Falling Interest Rates</a>
-                                </li>
-                            </ul>
-                            <!--**********************************
+                                         End of Cards
+                        ***********************************-->
+                        <!--div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="tab" role="tabpanel">
+                                        <!-- Nav tabs -->
+                                        <!--ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation"><a href="#stock-Market-gains"
+                                                    aria-controls="profile" role="tab" data-toggle="tab">US Market
+                                                    Gains</a></li>
+                                            <li role="presentation"><a href="#stock-Market-decline"
+                                                    aria-controls="messages" role="tab" data-toggle="tab">US Market
+                                                    Decline</a></li>
+                                            <li role="presentation" class="active"><a href="#Interest-Rate-rising"
+                                                    aria-controls="home" role="tab" data-toggle="tab">Rising Interest
+                                                    Rates</a></li>
+                                            <li role="presentation" class="active"><a href="#Interest-Rate-falling"
+                                                    aria-controls="home" role="tab" data-toggle="tab">Falling Interest
+                                                    Rates</a></li>
+
+                                        </ul>
+                                        <!-- Tab panes -->
+                                        <!--div role="tabpanel" class="tab-pane fade" id="stock-Market-gains">
+                                            <h3>US Market Gains</h3>
+                                            <!--div class="col-12"-->
+                                            <!--div class="card">
+                                                <div class="card-header">
+                                                    <h4 class="card-title">Stress Test: US Market Gains</h4>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="card" id="gains_plot"></div>
+                                                </div>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                                                semper, magna a ultricies volutpat, mi eros viverra massa, vitae
+                                                consequat nisi justo in tortor. Proin accumsan felis ac felis
+                                                dapibus, non iaculis mi varius.</p>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="stock-Market-decline">
+                                            <h3>US Market Decline</h3>
+                                            <!--div class="col-12"-->
+                                            <!--div class="card">
+                                                <div class="card-header">
+                                                    <h4 class="card-title">Stress Test: US Market Decline</h4>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="card" id="decline_plot"></div>
+                                                </div>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                                                semper, magna a ultricies volutpat, mi eros viverra massa, vitae
+                                                consequat nisi justo in tortor. Proin accumsan felis ac felis
+                                                dapibus, non iaculis mi varius.</p>
+                                        </div>
+                                        <div class="tab-content tabs">
+                                            <div role="tabpanel" class="tab-pane fade in active"
+                                                id="Interest-Rate-falling">
+                                                <h3>Falling Interest Rates</h3>
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Stress Test: Us Market Decline</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="card" id="decline_plot"></div>
+                                                    </div>
+                                                </div>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                                                    semper, magna a ultricies volutpat, mi eros viverra massa, vitae
+                                                    consequat nisi justo in tortor. Proin accumsan felis ac felis
+                                                    dapibus, non iaculis mi varius.</p>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane fade" id="stock-Market-gains">
+                                                <h3>US Market Gains</h3>
+                                                <!--div class="col-12"-->
+                                                <!--div class="card">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Stress Test: US Market Gains</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="card" id="gains_plot"></div>
+                                                    </div>
+                                                </div>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                                                    semper, magna a ultricies volutpat, mi eros viverra massa, vitae
+                                                    consequat nisi justo in tortor. Proin accumsan felis ac felis
+                                                    dapibus, non iaculis mi varius.</p>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane fade" id="Stock-Market-decline">
+                                                <h3>Stress Test: US Market Decline</h3>
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Stress Test: US Market Decline</h4>
+
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="card" id="decline_plot"></div>
+
+                                                    </div>
+                                                </div>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                                                    semper, magna a ultricies volutpat, mi eros viverra massa, vitae
+                                                    consequat nisi justo in tortor. Proin accumsan felis ac felis
+                                                    dapibus, non iaculis mi varius.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div-->
+                        <!--**********************************
                                          End of tabs
-                                    ***********************************-->
-                            <div class="row">
-                                <div class="col-10">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4 class="card-title">Closing Gold Price (USD) Vs Ticker Share
-                                                Price </h4>
-                                            <!--Get Current Ticker-->
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-xl-12 col-lg-12">
-                                                    <div id="prices_plot"></div>
-                                                </div>
-                                            </div>
-                                        </div>
+                         ***********************************-->
+                        <div class="row">
+                            <div class="col-10">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Closing Gold Price (USD) Vs Ticker Share
+                                            Price </h4>
+                                        <!--Get Current Ticker-->
                                     </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4 class="card-title">Summary Of Company</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-xl-12 col-lg-12">
-                                                    <div id=""></div>
-                                                </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12">
+                                                <div id="prices_plot"></div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="row">
-                                <div class="col-xl-4 col-lg-4 col-md-4">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4 class="card-title">Track Your Investment</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-xl-12 col-lg-12">
-                                                    <div id="investment_plot"></div>
-                                                </div>
+                            <div class="col-2">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Summary Of Company</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12">
+                                                <div id=""></div>
                                             </div>
                                         </div>
-
                                     </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-4 col-md-4">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4 class="card-title">Investment Volatilty Comparison</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-xl-12 col-lg-12">
-                                                    <div id="box_plot"></div>
-                                                </div>
-                                            </div>
-                                        </div>
 
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-4 col-md-4">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4 class="card-title">Investment Volatilty: Ticker</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-xl-12 col-lg-12">
-                                                    <div id="candle_plot"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <h4 id="Stock-Market-decline">US Market Decline</h4>
-                            <!--start of tab1-->
-                            <div class="nav bg-dark py-4"></div>
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4 class="card-title">Stress Test: Us Market Decline</h4>
-
-
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="card" id="decline_plot"></div>
-
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
 
-
-                        <h4 id="Stock-Market-gains">US Market Gains</h4>
-                        <!--start of tab2-->
-                        <div class="nav bg-dark py-4"></div>
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-xl-4 col-lg-4 col-md-4">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4 class="card-title">Stress Test: US market Gains</h4>
-
-
+                                        <h4 class="card-title">Track Your Investment</h4>
                                     </div>
                                     <div class="card-body">
-                                        <div class="card" id="gains_plot"></div>
-
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12">
+                                                <div id="investment_plot"></div>
+                                            </div>
+                                        </div>
                                     </div>
+
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Investment Volatilty Comparison</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12">
+                                                <div id="box_plot"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Investment Volatilty: Ticker</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12">
+                                                <div id="candle_plot"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
 
+                        <h4 id="industry-analysis">US Industry Analysis</h4>
+                        <!--start of Vera-->
+                        <div class="nav bg-dark py-5"></div>
 
-                        <h4 id="Interest-Rate-Rises">Rising Interest Rates</h4>
-                        <!--start of tab3-->
-                        <div class="nav bg-dark py-4"></div>
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4 class="card-title">Stress Test: Rising Interest Rates</h4>
+                                        <h4 class="card-title">US Industry Analysis</h4>
 
 
                                     </div>
                                     <div class="card-body">
-                                        <div class="card" id="Interest_rise_plot"></div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <h4 id="Interest-Rate-falling">Falling Interest Rates</h4>
-                        <!--start of tab4-->
-                        <div class="nav bg-dark py-4"></div>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title">Stress Test: Falling Interest Rates</h4>
-
-
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="card" id="interest_falling_plot"></div>
+                                        <div class="card" id="decline_plot"></div>
 
                                     </div>
                                 </div>
@@ -777,14 +579,50 @@
                         </div>
                     </div>
 
+                    <h4 id="commodity-analysis">Commodity Analysis</h4>
+                    <!--start of Nick-->
+                    <div class="nav bg-dark py-5"></div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Commodity Analysis</h4>
 
 
+                                </div>
+                                <div class="card-body">
+                                    <div class="card" id="gains_plot"></div>
 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <h4 id="Mortgage-analysis">Mortgage Interest Rate Analysis</h4>
+                    <!--start of Regina-->
+                    <div class="nav bg-dark py-5"></div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Mortgage Interest Rate Analysis</h4>
+
+
+                                </div>
+                                <div class="card-body">
+                                    <div class="card" id="Interest_rise_plot"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                        </div-->
+
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </div>
+        </div>
     </div>
     <!--**********************************
             Content body end
@@ -875,9 +713,16 @@
     <!-- <script src="{{ url_for('static', filename='./vendor/select2/js/select2.full.min.js')}}"></script>
     <script src="{{ url_for('static', filename='./js/plugins-init/select2-init.js')}}"></script> -->
 
+    <!--carousel scripts-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js">    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-
-
+    <!--Tabs script-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
 
 </body>
 
