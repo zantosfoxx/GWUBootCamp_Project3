@@ -5869,7 +5869,7 @@ button.bg-dark:focus {
   width: 75% !important; }
 
 .w-100 {
-  width: 100% !important; }
+  width: 100% !important;}
 
 .w-auto {
   width: auto !important; }
@@ -19439,14 +19439,14 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 .carousel-control-next {
   width: 5%;
 }
-.carousel-inner > .item > img {
-  width:640px;
-  height:360px;
+ .carousel-inner > .item > img {
+  /* width:640px; */
+  height:260px;
 }
 .carousel {
-  width:640px;
-  height:360px;
-}
+  /* width:640px; */
+  height:260px;
+} 
 
 
 /*tabs*/
