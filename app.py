@@ -35,6 +35,13 @@ def index():
     # use render_template to serve up the index.html
     return render_template('index.html')
 
+    
+@app.route("/index1")
+def index1():
+
+    # use render_template to serve up the index.html
+    return render_template('index1.html')
+
 # =========== VERA STARTS =========
 @app.route("/tickerlist")
 def tickerlist(): 
