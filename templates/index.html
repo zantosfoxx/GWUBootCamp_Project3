@@ -420,8 +420,11 @@ $("#ticker_input").tokenInput(tickers);
                         <div class="card">
                             <div class="stat-widget-two card-body">
                                 <div class="stat-content">
-                                    <div class="stat-text">Today Expenses_CHECK POINT </div>
-                                    <div class="stat-digit"> <i class="fa fa-usd"></i>8500</div>
+                                    <div class="stat-text">Initial Investment</div>
+                                    <div class="stat-digit" id = "invest-amount"> <i class="fa fa-usd"></i>8500</div>
+                                    <p id ="investment">
+                                        Investment Date:
+                                    </p>
                                 </div>
                                 <div class="progress">
                                     <div class="progress-bar progress-bar-success w-85" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
@@ -433,8 +436,12 @@ $("#ticker_input").tokenInput(tickers);
                         <div class="card">
                             <div class="stat-widget-two card-body">
                                 <div class="stat-content">
-                                    <div class="stat-text">Income Detail</div>
+                                    <div class="stat-text">Maximum Possible Return</div>
                                     <div class="stat-digit"> <i class="fa fa-usd"></i>7800</div>
+                                    <p id ="max-return">
+                                        Divestment Date:
+                                    </p>
+                                  
                                 </div>
                                 <div class="progress">
                                     <div class="progress-bar progress-bar-primary w-75" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
@@ -446,11 +453,15 @@ $("#ticker_input").tokenInput(tickers);
                         <div class="card">
                             <div class="stat-widget-two card-body">
                                 <div class="stat-content">
-                                    <div class="stat-text">Task Completed</div>
+                                    <div class="stat-text">Minimum Possible Return</div>
+
                                     <div class="stat-digit"> <i class="fa fa-usd"></i> 500</div>
+                                    <p id ="min-return">
+                                        Divestment Date:
+                                    </p>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-warning w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar progress-bar-warning w-50" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
@@ -459,11 +470,15 @@ $("#ticker_input").tokenInput(tickers);
                         <div class="card">
                             <div class="stat-widget-two card-body">
                                 <div class="stat-content">
-                                    <div class="stat-text">Task Completed</div>
+                                    <div class="stat-text">Actual Return</div>
+
                                     <div class="stat-digit"> <i class="fa fa-usd"></i>650</div>
+                                    <p id ="actual-return">
+                                        Divestment Date:
+                                    </p>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-danger w-65" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar progress-bar-danger w-65" role="progressbar" aria-valuenow="65" aria-valuemin="-100" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
@@ -680,11 +695,11 @@ $("#ticker_input").tokenInput(tickers);
     <script src="{{ url_for('static', filename='./vendor/jquery.counterup/jquery.counterup.min.js')}}"></script>
 
 
-    <script src="{{ url_for('static', filename='./js/dashboard/dashboard-1.js')}}"></script>
+    <!-- <script src="{{ url_for('static', filename='./js/dashboard/dashboard-1.js')}}"></script> -->
 
      <!-- Required vendors -->
      <script src="{{ url_for('static', filename='./vendor/global/global.min.js')}}"></script>
-     <script src="{{ url_for('static', filename='./js/custom.min.js')}}"></script>
+     <!-- <script src="{{ url_for('static', filename='./js/custom.min.js')}}"></script> -->
      
  
  

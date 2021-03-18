@@ -10,6 +10,7 @@ function Initialize() {
   var ticker = "AAPL"
   var inv_startdate = `2018-10-19`
   var inv_enddate = `2020-02-05`
+ 
 
   volatility(ticker, app_ticker)
   //console.log(`Initialise is running`)
@@ -23,6 +24,8 @@ Initialize();
 function volatility(ticker, app_ticker) {
   /*========Box plot id=box_plot =======STARTS*/
 
+ 
+
   //Delay time to allow python to process
   var delayInMilliseconds = 3000; //1 second
 
@@ -34,10 +37,10 @@ function volatility(ticker, app_ticker) {
 
     d3.json(app_ticker).then(function (app_ticker_data) {
 
-      var app_gold_dates = app_gold_data.map(d => d.Date)
+     // var app_gold_dates = app_gold_data.map(d => d.Date)
       var app_gold_Returns = app_gold_data.map(d => d.Returns)
 
-      var app_ticker_dates = app_ticker_data.map(d => d.Date)
+      //var app_ticker_dates = app_ticker_data.map(d => d.Date)
       var app_ticker_Returns = app_ticker_data.map(d => d.Returns)
 
       // console.log(app_gold_Returns)
@@ -167,45 +170,51 @@ function processSubmit() {
 
   amount = document.getElementById('val-number').value
 
-  var entry = {
-    start_date : startdate,
-    end_date : enddate,
-    ticker : ticker
-  };
+  // var entry = {
+  //   start_date : startdate,
+  //   end_date : enddate,
+  //   ticker : ticker
+  // };
 
-  fetch('/ticker_test', {
-    method: "POST",
-    credentials: "include",
-    body: JSON.stringify(entry),
-    cache: "no-cache",
-    headers: new Headers ({
-      'content-type': "application/json"
-    })
-  })
-  .then(function(response){
-    if (response.status != 200) {
-      console.log(`POST method failed: ${response}`);
-      return ;
-    }
-    app_ticker = '/ticker_test'
-    volatility(ticker, app_ticker);
+  api_call = `/ticker_test?start_date=${startdate}&end_date=${enddate}&ticker=${ticker}`
 
-    
+  d3.json(api_call).then(data => {
+    console.log(data);
+    volatility(ticker, api_call)
   });
 
+  // fetch('/ticker_test', {
+  //   method: "POST",
+  //   credentials: "include",
+  //   body: JSON.stringify(entry),
+  //   //cache: "no-cache",
+  //   headers: new Headers ({
+  //     'content-type': "application/json"
+  //   })
+  // })
+  // .then(function(response){
+  //   if (response.status != 200) {
+  //     console.log(`POST method failed: ${response}`);
+  //     return ;
+  //   }
+    // app_ticker = '/ticker_returns'
+    // volatility(ticker, app_ticker);
+    //console.log(`POST method is successful:)
+   
+
+   
+
+    
+  }
+
+  
+
+  
 
 
-  //volatility(post_ticker())
-  //volatility(post_ticker(), String(startdate), String(enddate), amount)
 
+//  console.log(`ProcessSubmit is running`)
 
-
-  console.log(`ProcessSubmit is running`)
-
-
-
-
-}
 
 document.getElementById('submit').addEventListener('click', processSubmit);
 

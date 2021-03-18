@@ -25,6 +25,7 @@ function Initialize() {
   var inv_startdate = `2018-10-19`
   var inv_enddate = `2020-02-05`
   gold(ticker, inv_startdate, inv_enddate, value)
+  Invest(ticker, inv_startdate, inv_enddate, value)
   //console.log(`Initialise is running`)
 };
 Initialize();
@@ -34,7 +35,7 @@ function gold(ticker, inv_startdate, inv_enddate, value) {
 
   d3.json(gold_url).then(function (data_gold) {
     d3.json(ticker_url).then(function (data_ticker) {
-      console.log(data_ticker)
+      //console.log(data_ticker)
 
 
       /*======PERIODS OF  STOCK MARKET DECLINES======
@@ -103,7 +104,7 @@ function gold(ticker, inv_startdate, inv_enddate, value) {
       //console.log(close_gold_inv)
       // console.log(open_gold_inv)
       var gold_inv_change = (close_gold_inv[0][1] - open_gold_Fcrisis[0][1]) / open_gold_inv[0][1] * 100
-      console.log(gold_inv_change)
+      //console.log(gold_inv_change)
       /*===============================
                USER's Ticker
           ===============================*/
@@ -277,7 +278,35 @@ function gold(ticker, inv_startdate, inv_enddate, value) {
 };
 
 
-/* STRESS TEST*/
+/* STRESS TEST ENDS*/
+
+
+function Invest(ticker, inv_startdate, inv_enddate, value) {
+  var ticker_url = `https://www.quandl.com/api/v3/datasets/EOD/${ticker}/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_date}&order=asc`
+
+  d3.json(gold_url).then(function (data_gold) {
+    d3.json(ticker_url).then(function (data_ticker) {
+   
+
+
+//=====MAX Investment values=====
+const maxValueOfY = Math.min.apply(Math, data_ticker.dataset_data.data.map(function(o) { return o[1]; }))
+var ticker_max = data_ticker.dataset_data.data.filter(d => d[1] == maxValueOfY)
+console.log(maxValueOfY)
+//console.log(document.getElementById("fa-usd"))
+document.getElementById("invest-amount").textContent = `$${value}`
+document.getElementById('investment').textContent = `Investment Date: ${ticker_max[0][0]}`
+
+
+
+//=====Min Investment values=====
+const minValueOfY = Math.min(data_ticker.dataset_data.data.map(o => o[1]), 0)
+
+//var open_gold_recession = data_gold.dataset_data.data.filter(d => d[0] == open_recession)
+//var close_gold_recession = data_gold.dataset_data.data.filter(d => d[0] == close_recession)
+    });
+  });
+};
 
 
 
@@ -300,6 +329,7 @@ function processSubmit() {
 
   gold(ticker, String(startdate), String(enddate), amount)
   console.log(`ProcessSubmit is running`)
+  Invest(ticker, String(startdate), String(enddate), amount)
 
 
 }
