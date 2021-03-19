@@ -11,10 +11,9 @@
 
     <!-- Favicon icon -->
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='./vendor/owl-carousel/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet"
-        href="{{ url_for('static', filename='./vendor/owl-carousel/css/owl.theme.default.min.css')}}">
-    <link href="{{ url_for('static', filename='./vendor/jqvmap/css/jqvmap.min.css')}} " rel="stylesheet">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='./vendor/owl-carousel/css/owl.carousel.min.css')}}"> -->
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='./vendor/owl-carousel/css/owl.theme.default.min.css')}}"> -->
+    <!-- <link href="{{ url_for('static', filename='./vendor/jqvmap/css/jqvmap.min.css')}} " rel="stylesheet"> -->
 
 
     <!-- Plotly JS -->
@@ -47,7 +46,7 @@
         integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
         crossorigin=""></script>
     <!-- API key -->
-    <script type="text/javascript" src="static/js/config.js"></script>
+    <!-- <script type="text/javascript" src="static/js/config.js"></script> -->
 
     <!-- D3 CDN -->
     <script src="https://d3js.org/d3.v6.min.js"></script>
@@ -250,113 +249,122 @@
                 Sidebar end
                  ***********************************-->
 
-                 <!-- ==================TRACK YOUR IVESTMENT STARTS -->
+        <!-- ==================TRACK YOUR IVESTMENT STARTS -->
 
-                 <!-- USER SELECTION -->
-                 <br>
-                 <br>
-                 <h4>Stress Test & Predict Your Investment Performance</h4>
-                 <!--start of Meakin-->
-                 <div class="nav bg-dark py-3"></div>
-                 <br>
-                 <br>
-                  <!-- Card Start-->
-                <div class="row row-cols-1 row-cols-md-4 g-3">
-                    <div class="col">
-                        <div class="card border-light rounded h-100">
-                            <div class="card-body">
-                                <h4 class="card-title">Stock Listed Companies</h4>
-                                <p class="card-text">Select Company Ticker</p>
-                                <hr>
-                                <input type="text" name="ticker_input" id="ticker_input" class="form-control"/>
-                                                                
-                            </div>
-                            <!--Start of autocpmplete search -->
-    
+        <!-- USER SELECTION -->
+        <br>
+        <br>
+        <div class = "row"> <!--Start of panel-->
+            <div class = "col-md-2">
+        <h4>Stress Test & Predict Your Investment Performance</h4>
+        <!--start of Meakin-->
+        <div class="nav bg-dark py-3"></div>
+        <br>
+        <br>
+        <!-- Card Start-->
+        <div class="row row-cols-1 row-cols-md-4 g-3">
+            <div class="col">
+                <div class="card border-light rounded h-80">
+                    <div class="card-body">
+                        <h4 class="card-title">Stock Listed Companies</h4>
+                        <p class="card-text">Select Company Ticker</p>
+                        <hr>
+                        <input type="text" name="ticker_input" id="ticker_input" class="form-control" />
 
-
-<!-- Tokeninput plugin library -->
-<script src= "{{ url_for('static', filename='js/jquery.tokeninput.js') }}" defer></script>
-<script src="{{ url_for('static', filename='js/counties.js') }}"></script>
-<script> var tickers = counties
-$(document).ready(function() {
-$("#ticker_input").tokenInput(tickers);
-});
-</script>     
-     
-<!--end of jumbotron code and autocomplete search-->
-                        </div>
-                    </div> <!-- ticker symbol ends -->
-                    <div class="col"> <!-- investment amount starts -->
-                        <div class="card border-light rounded h-100"> 
-                            <div class="card-body">
-                                <h4 class="card-title">Investment Amount</h4>
-                                <p class="card-text">Investment amount ($) <span
-                                class="text-danger">*</span></p>
-                                <hr>
-                                <div class="form-validation">
-                                    <form class="form-valide" action="#" method="post">
-                                        <div class="form-group row"> 
-                                            <!-- <label class="col-lg-12 col-form-label" for="val-number">
-                                            </label> -->
-                                            <div class="col-lg-10">
-                                                <input type="text" class="form-control" id="val-number" name="val-number" placeholder="1000">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div> 
-                            </div>
-                        </div> <!-- investment amount ends -->
                     </div>
-                    <div class="col"> <!-- Date picker starts -->
-                        <div class="card border-light rounded h-100">
-                            <div class="card-body">
-                                <h4 class="card-title">Investment Period</h4>
-                                <p class="card-text">Select a period of your investment</p>
-                                <hr>
-                                <div class="example">
-                                    
-                                    <input class="form-control input-daterange-datepicker" type="text" name="daterange" id = "daterange" value="01/01/2015 - 01/31/2015">
+                    <!--Start of autocpmplete search -->
+
+
+
+                    <!-- Tokeninput plugin library -->
+                    <script src="{{ url_for('static', filename='js/jquery.tokeninput.js') }}" defer></script>
+                    <script src="{{ url_for('static', filename='js/counties.js') }}"></script>
+                    <script> var tickers = counties
+                        $(document).ready(function () {
+                            $("#ticker_input").tokenInput(tickers);
+                        });
+                    </script>
+
+                    <!--end of jumbotron code and autocomplete search-->
+                </div>
+            </div> <!-- ticker symbol ends -->
+            <div class="col">
+                <!-- investment amount starts -->
+                <div class="card border-light rounded h-80">
+                    <div class="card-body">
+                        <h4 class="card-title">Investment Amount</h4>
+                        <p class="card-text">Investment amount ($) <span class="text-danger">*</span></p>
+                        <hr>
+                        <div class="form-validation">
+                            <form class="form-valide" action="#" method="post">
+                                <div class="form-group row">
+                                    <!-- <label class="col-lg-12 col-form-label" for="val-number">
+                                            </label> -->
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control" id="val-number" name="val-number"
+                                            placeholder="1000">
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
-                    </div> <!-- Date picker ends -->
-                    <div class="col">
-                        <div class="card border-light rounded h-100">
-                            <div class="card-body">
-                                <h4 class="card-title">Track your Investment</h4>
-                                
-                                <p> Analyse your investment</p>
-                                <hr>
-                                <button id="submit" type="submit" class="btn btn-success">Track Performance</button>
-                             
-                            </div>
+                    </div>
+                </div> <!-- investment amount ends -->
+            </div>
+            <div class="col">
+                <!-- Date picker starts -->
+                <div class="card border-light rounded h-80">
+                    <div class="card-body">
+                        <h4 class="card-title">Investment Period</h4>
+                        <p class="card-text">Select a period of your investment</p>
+                        <hr>
+                        <div class="example">
+
+                            <input class="form-control input-daterange-datepicker" type="text" name="daterange"
+                                id="daterange" value="01/01/2015 - 01/31/2015">
                         </div>
                     </div>
                 </div>
+            </div> <!-- Date picker ends -->
+            <div class="col">
+                <div class="card border-light rounded h-80">
+                    <div class="card-body">
+                        <h4 class="card-title">Track your Investment</h4>
 
-                <br>
-                 <br>
-                <!-- Card End-->
+                        <p> Analyse your investment</p>
+                        <hr>
+                        <button id="submit" type="submit" class="btn btn-success">Track Performance</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+        <br>
+        <br>
+        <!-- Card End-->
 
         <!--**********************************
                 Content body start
                 ***********************************-->
-        <div class="col-12">
+       
             <!--div class="content-body"-->
             <!-- row -->
-            <div class="container-fluid">
+            <div class=" col-md-10 container-fluid">
                 <div class="row">
                     <div class="col-lg-3 col-sm-6">
                         <div class="card">
                             <div class="stat-widget-two card-body">
                                 <div class="stat-content">
-                                    <div class="stat-text">Today Expenses_CHECK POINT </div>
-                                    <div class="stat-digit"> <i class="fa fa-usd"></i>8500</div>
+                                    <div class="stat-text">Initial Investment</div>
+                                    <div class="stat-digit" id = "invest-amount"> <i class="fa fa-usd"></i>8500</div>
+                                    <p id ="investment">
+                                        Investment Date:
+                                    </p>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-success w-85" role="progressbar"
-                                        aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar progress-bar-success w-85" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
@@ -365,12 +373,15 @@ $("#ticker_input").tokenInput(tickers);
                         <div class="card">
                             <div class="stat-widget-two card-body">
                                 <div class="stat-content">
-                                    <div class="stat-text">Income Detail</div>
+                                    <div class="stat-text">Maximum Possible Return</div>
                                     <div class="stat-digit"> <i class="fa fa-usd"></i>7800</div>
+                                    <p id ="max-return">
+                                        Divestment Date:
+                                    </p>
+                                  
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-primary w-75" role="progressbar"
-                                        aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar progress-bar-primary w-75" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
@@ -379,12 +390,15 @@ $("#ticker_input").tokenInput(tickers);
                         <div class="card">
                             <div class="stat-widget-two card-body">
                                 <div class="stat-content">
-                                    <div class="stat-text">Task Completed</div>
+                                    <div class="stat-text">Minimum Possible Return</div>
+
                                     <div class="stat-digit"> <i class="fa fa-usd"></i> 500</div>
+                                    <p id ="min-return">
+                                        Divestment Date:
+                                    </p>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-warning w-50" role="progressbar"
-                                        aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar progress-bar-warning w-50" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
@@ -393,12 +407,15 @@ $("#ticker_input").tokenInput(tickers);
                         <div class="card">
                             <div class="stat-widget-two card-body">
                                 <div class="stat-content">
-                                    <div class="stat-text">Task Completed</div>
+                                    <div class="stat-text">Actual Return</div>
+
                                     <div class="stat-digit"> <i class="fa fa-usd"></i>650</div>
+                                    <p id ="actual-return">
+                                        Divestment Date:
+                                    </p>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-danger w-65" role="progressbar"
-                                        aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar progress-bar-danger w-65" role="progressbar" aria-valuenow="65" aria-valuemin="-100" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
@@ -409,7 +426,7 @@ $("#ticker_input").tokenInput(tickers);
                 <!--**********************************-->
                 <!--Start of Interactive Dashboard-->
 
-                <div class="row">
+                <div class="row"> 
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
@@ -425,7 +442,8 @@ $("#ticker_input").tokenInput(tickers);
                             </div>
                         </div>
                     </div>
-                    <!--div class="col-2">
+                </div>
+                <!--div class="col-2">
                                 <div class="card">
                                     <div class="card-header">
                                         <h4 class="card-title">Summary Of Company</h4>
@@ -442,205 +460,171 @@ $("#ticker_input").tokenInput(tickers);
                             </div>
                         </div-->
 
-                    <div class="row">
-                        <div class="col-12">
-                            div class="container">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="tab" role="tabpanel">
-                                        <!-- Nav tabs -->
-                                        <ul class="nav nav-tabs" role="tablist">
-                                            <li role="presentation" class="active"><a href="#Section1"
-                                                    aria-controls="home" role="tab" data-toggle="tab">Section 1</a></li>
-                                            <li role="presentation"><a href="#Section2" aria-controls="profile"
-                                                    role="tab" data-toggle="tab">Section 2</a></li>
-                                            <li role="presentation"><a href="#Section3" aria-controls="messages"
-                                                    role="tab" data-toggle="tab">Section 3</a></li>
-                                        </ul>
-                                        <!-- Tab panes -->
-                                        <div class="tab-content tabs">
-                                            <div role="tabpanel" class="tab-pane fade in active" id="Section1">
-                                                <h3>Investment Volatilty Comparison</h3>
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h4 class="card-title">Investment Volatilty Comparison</h4>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <div class="row">
-                                                            <div class="col-12">
-                                                                <div id="box_plot"></div>
-                                                            </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="tab" role="tabpanel">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#Section1" aria-controls="home"
+                                                role="tab" data-toggle="tab">Section 1</a></li>
+                                        <li role="presentation"><a href="#Section2" aria-controls="profile" role="tab"
+                                                data-toggle="tab">Section 2</a></li>
+                                        <li role="presentation"><a href="#Section3" aria-controls="messages" role="tab"
+                                                data-toggle="tab">Section 3</a></li>
+                                    </ul>
+                                    <!-- Tab panes -->
+                                    <div class="tab-content tabs">
+                                        <div role="tabpanel" class="tab-pane fade in active" id="Section1">
+                                            <h3>Investment Volatilty Comparison</h3>
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h4 class="card-title">Investment Volatilty Comparison</h4>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div id="box_plot"></div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                                                    semper, magna a ultricies volutpat, mi eros viverra massa, vitae
-                                                    consequat nisi justo in tortor. Proin accumsan felis ac felis
-                                                    dapibus, non iaculis mi varius.</p>
                                             </div>
-                                            <div role="tabpanel" class="tab-pane fade" id="Section2">
-                                                <h3>Section 2</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                                                    semper, magna a ultricies volutpat, mi eros viverra massa, vitae
-                                                    consequat nisi justo in tortor. Proin accumsan felis ac felis
-                                                    dapibus, non iaculis mi varius.</p>
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane fade" id="Section3">
-                                                <h3>Section 3</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                                                    semper, magna a ultricies volutpat, mi eros viverra massa, vitae
-                                                    consequat nisi justo in tortor. Proin accumsan felis ac felis
-                                                    dapibus, non iaculis mi varius.</p>
-                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                                                semper, magna a ultricies volutpat, mi eros viverra massa, vitae
+                                                consequat nisi justo in tortor. Proin accumsan felis ac felis
+                                                dapibus, non iaculis mi varius.</p>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="Section2">
+                                            <h3>Section 2</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                                                semper, magna a ultricies volutpat, mi eros viverra massa, vitae
+                                                consequat nisi justo in tortor. Proin accumsan felis ac felis
+                                                dapibus, non iaculis mi varius.</p>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="Section3">
+                                            <h3>Section 3</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                                                semper, magna a ultricies volutpat, mi eros viverra massa, vitae
+                                                consequat nisi justo in tortor. Proin accumsan felis ac felis
+                                                dapibus, non iaculis mi varius.</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                     </div>
 
 
 
 
 
 
-                        <div class="col-4">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Closing Gold Price (USD) Vs Ticker Share
-                                        Price </h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <!--div class="col-xl-12 col-lg-12"-->
-                                        <div id="prices_plot"></div>
-                                        <!--/div-->
-                                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Closing Gold Price (USD) Vs Ticker Share
+                                    Price </h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <!--div class="col-xl-12 col-lg-12"-->
+                                    <div id="prices_plot"></div>
+                                    <!--/div-->
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
-                            <div class="card">
-                                <div class="card-header">
-                                    <!--h4 class="card-title">Investment Volatilty Comparison</h4-->
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div id="box_plot"></div>
-                                        </div>
-                                    </div>
-                                </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <!--h4 class="card-title">Investment Volatilty Comparison</h4-->
                             </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Investment Volatilty: Ticker</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <!--div class="col-xl-12 col-lg-12"-->
-                                        <div id="candle_plot"></div>
-                                        <!--/div-->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div id="box_plot"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!--Starts of Stress test analysis-->
-                <div class="row">
-                    <div class="col-12">
-                        <h4 id="stress-test-analysis">Stress Test Analysis</h4>
-                        <div class="nav bg-dark py-5"></div>
-
-                        <div class="nav bg-light py-2">
-                            <p>Short general description about stress test analysis </p>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Investment Volatilty: Ticker</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <!--div class="col-xl-12 col-lg-12"-->
+                                    <div id="candle_plot"></div>
+                                    <!--/div-->
+                                </div>
+                            </div>
                         </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="tab" role="tabpanel">
-                                        <!-- Nav tabs -->
-                                        <ul class="nav nav-tabs" role="tablist">
-                                            <li role="presentation" class="active"><a href="#stock-Market-gains"
-                                                    aria-controls="home" role="tab" data-toggle="tab">Market
-                                                    Gains</a>
-                                            </li>
-                                            <li role="presentation"><a href="#stock-Market-decline"
-                                                    aria-controls="profile" role="tab" data-toggle="tab">Market
-                                                    Decline</a></li>
-                                            <li role="presentation"><a href="#Interest-Rate-rising"
-                                                    aria-controls="messages" role="tab" data-toggle="tab">Rising Int
-                                                    Rates</a></li>
-                                            <li role="presentation"><a href="#Interest-Rate-falling"
-                                                    aria-controls="messages" role="tab" data-toggle="tab">
-                                                    Falling Rates</a>
-                                            </li>
-                                        </ul>
-                                        <!-- Tab panes -->
-                                        <div class="tab-content tabs">
-                                            <div role="tabpanel" class="tab-pane fade in active"
-                                                id="stock-Market-gains">
-                                                <h3>Stress Test: US Market Gains</h3>
-                                                <div class="col-12">
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            <!--h4 class="card-title">Stress Test: US Market Gains</h4-->
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div class="card" id="gains_plot"></div>
-                                                        </div>
-                                                    </div>
-                                                    <p>info about this graph</p>
-                                                </div>
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane fade" id="stock-Market-decline">
-                                                <div class="col-12">
-                                                    <h3>US Market Decline</h3>
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            <!--h4 class="card-title">Stress Test: US Market Gains</h4-->
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div class="card" id="decline_plot"></div>
-                                                        </div>
-                                                    </div>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                        Fusce
-                                                        semper,
-                                                        magna a ultricies volutpat, mi eros viverra massa, vitae
-                                                        consequat
-                                                        nisi
-                                                        justo in tortor. Proin accumsan felis ac felis dapibus, non
-                                                        iaculis
-                                                        mi
-                                                        varius.</p>
-                                                </div>
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane fade" id="Interest-Rate-rising">
-                                                <h4>Stress Test: Rising Interest Rates</h4>
+                    </div>
+                </div>
+             </div>
+             <!--Starts of Stress test analysis-->
+             <div class="row">
+                <div class="col-12">
+                    <h4 id="stress-test-analysis">Stress Test Analysis</h4>
+                    <div class="nav bg-dark py-5"></div>
+
+                    <div class="nav bg-light py-2">
+                        <p>Short general description about stress test analysis </p>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="tab" role="tabpanel">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#stock-Market-gains"
+                                                aria-controls="home" role="tab" data-toggle="tab">Market
+                                                Gains</a>
+                                        </li>
+                                        <li role="presentation"><a href="#stock-Market-decline" aria-controls="profile"
+                                                role="tab" data-toggle="tab">Market
+                                                Decline</a></li>
+                                        <li role="presentation"><a href="#Interest-Rate-rising" aria-controls="messages"
+                                                role="tab" data-toggle="tab">Rising Int
+                                                Rates</a></li>
+                                        <li role="presentation"><a href="#Interest-Rate-falling"
+                                                aria-controls="messages" role="tab" data-toggle="tab">
+                                                Falling Rates</a>
+                                        </li>
+                                    </ul>
+                                    <!-- Tab panes -->
+                                    <div class="tab-content tabs">
+                                        <div role="tabpanel" class="tab-pane fade in active" id="stock-Market-gains">
+                                            <h3>Stress Test: US Market Gains</h3>
+                                            <div class="col-12">
                                                 <div class="card">
                                                     <div class="card-header">
                                                         <!--h4 class="card-title">Stress Test: US Market Gains</h4-->
                                                     </div>
                                                     <div class="card-body">
-                                                        <!--div class="card" id="decline_plot"></div-->
+                                                        <div class="card" id="gains_plot"></div>
                                                     </div>
                                                 </div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                                                    semper,
-                                                    magna a ultricies volutpat, mi eros viverra massa, vitae
-                                                    consequat
-                                                    nisi
-                                                    justo in tortor. Proin accumsan felis ac felis dapibus, non
-                                                    iaculis
-                                                    mi
-                                                    varius.</p>
+                                                <p>info about this graph</p>
                                             </div>
-                                            <div role="tabpanel" class="tab-pane fade" id="Interest-Rate-falling">
-                                                <h3>Falling Interest Rates</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="stock-Market-decline">
+                                            <div class="col-12">
+                                                <h3>US Market Decline</h3>
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <!--h4 class="card-title">Stress Test: US Market Gains</h4-->
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="card" id="decline_plot"></div>
+                                                    </div>
+                                                </div>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                    Fusce
                                                     semper,
                                                     magna a ultricies volutpat, mi eros viverra massa, vitae
                                                     consequat
@@ -651,21 +635,65 @@ $("#ticker_input").tokenInput(tickers);
                                                     varius.</p>
                                             </div>
                                         </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="Interest-Rate-rising">
+                                            <h4>Stress Test: Rising Interest Rates</h4>
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h4 class="card-title">Stress Test: US Market Gains</h4>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="card" id="Interest_rise_plot"></div>
+                                                </div>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                                                semper,
+                                                magna a ultricies volutpat, mi eros viverra massa, vitae
+                                                consequat
+                                                nisi
+                                                justo in tortor. Proin accumsan felis ac felis dapibus, non
+                                                iaculis
+                                                mi
+                                                varius.</p>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="Interest-Rate-falling">
+                                            <h3>Falling Interest Rates</h3>
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h4 class="card-title">Stress Test: US Market Gains</h4>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="card" id="interest_falling_plot"></div>
+                                                </div>
+                                            </div>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                                                semper,
+                                                magna a ultricies volutpat, mi eros viverra massa, vitae
+                                                consequat
+                                                nisi
+                                                justo in tortor. Proin accumsan felis ac felis dapibus, non
+                                                iaculis
+                                                mi
+                                                varius.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+         </div>
+        </div>
 
-                <!--**********************************
+
+            <!--**********************************
                                          End of tabs
                          ***********************************-->
 
-                <h4 id="industry-analysis">Stock Market Analysis</h4>
-                <!--start of Vera-->
-                <div class="nav bg-dark py-5"></div>
-                <!-- <div class="row">
+            <h4 id="industry-analysis">Stock Market Analysis</h4>
+            <!--start of Vera-->
+            <div class="nav bg-dark py-5"></div>
+            <!-- <div class="row">
                             <div class="col-12">
                                 div class="card">
                                     <div class="card-header">
@@ -679,143 +707,143 @@ $("#ticker_input").tokenInput(tickers);
                             </div>
                         </div>-->
 
-                <!-- !!!!!!!!!!!!!!!!!!   Page Body Part   !!!!!!!!!!!!!!!!!!!!!!!!!! -->
-                <!--Page Body-->
-                <!-- Card Start-->
-                <div class="row row-cols-1 row-cols-md-4 g-3">
-                    <div class="col">
-                        <div class="card border-light rounded h-100">
-                            <div class="card-body">
-                                <h4 class="card-title">Sectors</h4>
-                                <p class="card-text">Select Sectors</p>
-                                <hr>
-                                <select id="sector1" class="btn btn-secondary btn-sm dropdown-toggle"></select>
-                                <br>
-                                <br>
-                                <select id="sector2" class="btn btn-secondary btn-sm dropdown-toggle"></select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card border-light rounded h-100">
-                            <div class="card-body">
-                                <h4 class="card-title">Stocks</h4>
-                                <p class="card-text">Select Stocks</p>
-                                <hr>
-                                <select id="stock1" class="btn btn-secondary btn-sm dropdown-toggle"></select>
-                                <br>
-                                <br>
-                                <select id="stock2" class="btn btn-secondary btn-sm dropdown-toggle"></select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card border-light rounded h-100">
-                            <div class="card-body">
-                                <h4 class="card-title">Date</h4>
-                                <p class="card-text">Select Dates</p>
-                                <hr>
-                                <select id="start_date" class="btn btn-warning btn-sm dropdown-toggle"></select>
-                                <br>
-                                <br>
-                                <select id="end_date" class="btn btn-warning btn-sm dropdown-toggle"></select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card border-light rounded h-100">
-                            <div class="card-body">
-                                <button id="submit_plot" type="submit" class="btn btn-success">Plot
-                                    Stock</button>
-                                <br>
-                                <p> See Stocks Performance</p>
-                                <hr>
-                                <span id="description1" class="badge rounded-pill bg-secondary text-light"></span>
-                                <br>
-                                <br>
-                                <span id="description2" class="badge rounded-pill bg-secondary text-light"></span>
-                            </div>
+            <!-- !!!!!!!!!!!!!!!!!!   Page Body Part   !!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <!--Page Body-->
+            <!-- Card Start-->
+            <div class="row row-cols-1 row-cols-md-4 g-3">
+                <div class="col">
+                    <div class="card border-light rounded h-100">
+                        <div class="card-body">
+                            <h4 class="card-title">Sectors</h4>
+                            <p class="card-text">Select Sectors</p>
+                            <hr>
+                            <select id="sector1" class="btn btn-secondary btn-sm dropdown-toggle"></select>
+                            <br>
+                            <br>
+                            <select id="sector2" class="btn btn-secondary btn-sm dropdown-toggle"></select>
                         </div>
                     </div>
                 </div>
-                <!-- Card End-->
-                <hr>
-
-                <!--Stock Plot-->
-                <div class="row" style="height:auto; width: auto;">
-                    <div class="col-md-6">
-                        <div id="correPlot"></div>
-                    </div>
-                    <div class="col-md-6" style="height:auto; width: auto;">
-                        <div id="comparisonPlot"></div>
+                <div class="col">
+                    <div class="card border-light rounded h-100">
+                        <div class="card-body">
+                            <h4 class="card-title">Stocks</h4>
+                            <p class="card-text">Select Stocks</p>
+                            <hr>
+                            <select id="stock1" class="btn btn-secondary btn-sm dropdown-toggle"></select>
+                            <br>
+                            <br>
+                            <select id="stock2" class="btn btn-secondary btn-sm dropdown-toggle"></select>
+                        </div>
                     </div>
                 </div>
-                <br>
-
-                <h4>Stock Market Prediction</h4>
-                <!--start of Vera-->
-                <div class="nav bg-dark py-3"></div>
-                <!-- Tableau Card-->
-                <div class="card text-center border-light rounded">
-                    <div class="card-body">
-                        <div class='tableauPlaceholder' id='viz1614833538310' style='align-content: center'>
-                            <noscript><a href='#'><img alt=' '
-                                        src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;St&#47;StockMarketAnalysis_16148159340840&#47;TrendAnalysis&#47;1_rss.png'
-                                        style='border: none' /></a></noscript><object class='tableauViz'
-                                style='display:none;'>
-                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                                <param name='embed_code_version' value='3' />
-                                <param name='site_root' value='' />
-                                <param name='name' value='StockMarketAnalysis_16148159340840&#47;TrendAnalysis' />
-                                <param name='tabs' value='no' />
-                                <param name='toolbar' value='yes' />
-                                <param name='static_image'
-                                    value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;St&#47;StockMarketAnalysis_16148159340840&#47;TrendAnalysis&#47;1.png' />
-                                <param name='animate_transition' value='yes' />
-                                <param name='display_static_image' value='yes' />
-                                <param name='display_spinner' value='yes' />
-                                <param name='display_overlay' value='yes' />
-                                <param name='display_count' value='yes' />
-                                <param name='language' value='en' />
-                                <param name='filter' value='publish=yes' />
-                            </object>
+                <div class="col">
+                    <div class="card border-light rounded h-100">
+                        <div class="card-body">
+                            <h4 class="card-title">Date</h4>
+                            <p class="card-text">Select Dates</p>
+                            <hr>
+                            <select id="start_date" class="btn btn-warning btn-sm dropdown-toggle"></select>
+                            <br>
+                            <br>
+                            <select id="end_date" class="btn btn-warning btn-sm dropdown-toggle"></select>
                         </div>
-                        <script
-                            type='text/javascript'>                    var divElement = document.getElementById('viz1614833538310'); var vizElement = divElement.getElementsByTagName('object')[0]; if (divElement.offsetWidth > 800) { vizElement.style.width = '1000px'; vizElement.style.height = '827px'; } else if (divElement.offsetWidth > 500) { vizElement.style.width = '1000px'; vizElement.style.height = '827px'; } else { vizElement.style.width = '100%'; vizElement.style.height = '1677px'; } var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
                     </div>
                 </div>
-                <hr>
-
-                <!--Predicition Tableau Plot-->
-                <div class="card text-center border-light rounded">
-                    <div class="card-body">
-                        <div class='tableauPlaceholder' id='viz1615781706053' style='position: relative'>
-                            <noscript><a href='#'><img alt=' '
-                                        src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;St&#47;StockMarketPrediction_16157795216330&#47;Dashboard1&#47;1_rss.png'
-                                        style='border: none' /></a></noscript><object class='tableauViz'
-                                style='display:none;'>
-                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                                <param name='embed_code_version' value='3' />
-                                <param name='site_root' value='' />
-                                <param name='name' value='StockMarketPrediction_16157795216330&#47;Dashboard1' />
-                                <param name='tabs' value='no' />
-                                <param name='toolbar' value='yes' />
-                                <param name='static_image'
-                                    value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;St&#47;StockMarketPrediction_16157795216330&#47;Dashboard1&#47;1.png' />
-                                <param name='animate_transition' value='yes' />
-                                <param name='display_static_image' value='yes' />
-                                <param name='display_spinner' value='yes' />
-                                <param name='display_overlay' value='yes' />
-                                <param name='display_count' value='yes' />
-                                <param name='language' value='en' />
-                                <param name='filter' value='publish=yes' />
-                            </object>
+                <div class="col">
+                    <div class="card border-light rounded h-100">
+                        <div class="card-body">
+                            <button id="submit_plot" type="submit" class="btn btn-success">Plot
+                                Stock</button>
+                            <br>
+                            <p> See Stocks Performance</p>
+                            <hr>
+                            <span id="description1" class="badge rounded-pill bg-secondary text-light"></span>
+                            <br>
+                            <br>
+                            <span id="description2" class="badge rounded-pill bg-secondary text-light"></span>
                         </div>
-                        <script
-                            type='text/javascript'>                    var divElement = document.getElementById('viz1615781706053'); var vizElement = divElement.getElementsByTagName('object')[0]; if (divElement.offsetWidth > 800) { vizElement.style.width = '1000px'; vizElement.style.height = '827px'; } else if (divElement.offsetWidth > 500) { vizElement.style.width = '1000px'; vizElement.style.height = '827px'; } else { vizElement.style.width = '100%'; vizElement.style.height = '1577px'; } var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
                     </div>
                 </div>
             </div>
+            <!-- Card End-->
+            <hr>
+
+            <!--Stock Plot-->
+            <div class="row" style="height:auto; width: auto;">
+                <div class="col-md-6">
+                    <div id="correPlot"></div>
+                </div>
+                <div class="col-md-6" style="height:auto; width: auto;">
+                    <div id="comparisonPlot"></div>
+                </div>
+            </div>
+            <br>
+
+            <h4>Stock Market Prediction</h4>
+            <!--start of Vera-->
+            <div class="nav bg-dark py-3"></div>
+            <!-- Tableau Card-->
+            <div class="card text-center border-light rounded">
+                <div class="card-body">
+                    <div class='tableauPlaceholder' id='viz1614833538310' style='align-content: center'>
+                        <noscript><a href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;St&#47;StockMarketAnalysis_16148159340840&#47;TrendAnalysis&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='StockMarketAnalysis_16148159340840&#47;TrendAnalysis' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;St&#47;StockMarketAnalysis_16148159340840&#47;TrendAnalysis&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='language' value='en' />
+                            <param name='filter' value='publish=yes' />
+                        </object>
+                    </div>
+                    <script
+                        type='text/javascript'>                    var divElement = document.getElementById('viz1614833538310'); var vizElement = divElement.getElementsByTagName('object')[0]; if (divElement.offsetWidth > 800) { vizElement.style.width = '1000px'; vizElement.style.height = '827px'; } else if (divElement.offsetWidth > 500) { vizElement.style.width = '1000px'; vizElement.style.height = '827px'; } else { vizElement.style.width = '100%'; vizElement.style.height = '1677px'; } var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+                </div>
+            </div>
+            <hr>
+
+            <!--Predicition Tableau Plot-->
+            <div class="card text-center border-light rounded">
+                <div class="card-body">
+                    <div class='tableauPlaceholder' id='viz1615781706053' style='position: relative'>
+                        <noscript><a href='#'><img alt=' '
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;St&#47;StockMarketPrediction_16157795216330&#47;Dashboard1&#47;1_rss.png'
+                                    style='border: none' /></a></noscript><object class='tableauViz'
+                            style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                            <param name='embed_code_version' value='3' />
+                            <param name='site_root' value='' />
+                            <param name='name' value='StockMarketPrediction_16157795216330&#47;Dashboard1' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image'
+                                value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;St&#47;StockMarketPrediction_16157795216330&#47;Dashboard1&#47;1.png' />
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='language' value='en' />
+                            <param name='filter' value='publish=yes' />
+                        </object>
+                    </div>
+                    <script
+                        type='text/javascript'>                    var divElement = document.getElementById('viz1615781706053'); var vizElement = divElement.getElementsByTagName('object')[0]; if (divElement.offsetWidth > 800) { vizElement.style.width = '1000px'; vizElement.style.height = '827px'; } else if (divElement.offsetWidth > 500) { vizElement.style.width = '1000px'; vizElement.style.height = '827px'; } else { vizElement.style.width = '100%'; vizElement.style.height = '1577px'; } var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+                </div>
+            </div>
+
             <!-- !!!!!!!!!!!!!!!!!!!   End of Stock Market Stuff      !!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 
 
@@ -827,165 +855,156 @@ $("#ticker_input").tokenInput(tickers);
             <h4 id="Mortgage-analysis">Mortgage Interest Rate Analysis</h4>
             <!--start of Regina-->
             <div class="nav bg-dark py-5"></div>
+
+
             <div class="row">
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <!--h4 class="card-title">Mortgage Interest Rate Analysis2</h4-->
-                                    <div id="regina_plot"></div>
-                                </div>
-                            </div>
-                        </div>
-                        </div-->
-                        <div class="col-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <!--h4 class="card-title">Mortgage Interest Rate Analysis</h4-->
-                                    <div id="regina_plot2"></div>
-                                </div>
-                            </div>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <!--h4 class="card-title">Mortgage Interest Rate Analysis2</h4-->
+                            <div id="regina_plot"></div>
                         </div>
                     </div>
+                </div>
 
-                    <h4 id="commodity-analysis">Oil Performance Analysis</h4>
-                    <!--start of Nick-->
-                    <div class="nav bg-dark py-5"></div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Oil vs Prime Interest Rate</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div id="Nick_plot"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4 class="card-title">5-Year Misery Index</h4>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div id="Nick_plot2"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <!--h4 class="card-title">Mortgage Interest Rate Analysis</h4-->
+                            <div id="regina_plot2"></div>
                         </div>
-                        <!--**********************************
-            Content body end
-        ***********************************-->
-
-
-                        <!--**********************************
-            Footer start
-        ***********************************-->
-                        <div class="footer">
-                            <div class="copyright">
-                                <p>Copyright © Designed Team Logic; GW BootCamp<a href="#" target="_blank">Quixkit</a>
-                                    March 2021</p>
-                            </div>
-                        </div>
-                        <!--**********************************
-            Footer end
-        ***********************************-->
-
-                        <!--**********************************
-           Support ticket button start
-        ***********************************-->
-
-                        <!--**********************************
-           Support ticket button end
-        ***********************************-->
-
-
                     </div>
-                    <!--**********************************
-        Main wrapper end
-    ***********************************-->
+                </div>
+            </div>
 
-                    <!--**********************************
-        Scripts
-    ***********************************-->
-                    <!-- Required vendors -->
-                    <script src="{{ url_for('static', filename='./vendor/global/global.min.js')}}"></script>
-                    <script src="{{ url_for('static', filename='./js/quixnav-init.js')}}"></script>
-                    <script src="{{ url_for('static', filename='./js/custom.min.js')}}"></script>
+            <h4 id="commodity-analysis">Oil Performance Analysis</h4>
+            <!--start of Nick-->
+            <div class="nav bg-dark py-5"></div>
 
 
-
-                    <!-- Vectormap -->
-                    <script src="{{ url_for('static', filename='./vendor/raphael/raphael.min.js')}}"></script>
-
-
-
-                    <script
-                        src="{{ url_for('static', filename='./vendor/circle-progress/circle-progress.min.js')}}"></script>
-                    <script src="{{ url_for('static', filename='./vendor/chart.js/Chart.bundle.min.js')}}"></script>
-
-                    <script src="{{ url_for('static', filename='./vendor/gaugeJS/dist/gauge.min.js')}}"></script>
-
-                    <!--  flot-chart js -->
-                    <script src="{{ url_for('static', filename='./vendor/flot/jquery.flot.js')}}"></script>
-                    <script src="{{ url_for('static', filename='./vendor/flot/jquery.flot.resize.js')}}"></script>
-
-                    <!-- Owl Carousel -->
-                    <script
-                        src="{{ url_for('static', filename='./vendor/owl-carousel/js/owl.carousel.min.js')}}"></script>
-
-                    <!-- Counter Up -->
-                    <script src="{{ url_for('static', filename='./vendor/jqvmap/js/jquery.vmap.min.js')}}"></script>
-                    <script src="{{ url_for('static', filename='./vendor/jqvmap/js/jquery.vmap.usa.js')}}"></script>
-                    <script
-                        src="{{ url_for('static', filename='./vendor/jquery.counterup/jquery.counterup.min.js')}}"></script>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Oil vs Prime Interest Rate</h4>
+                </div>
+                <div class="card-body">
+                    <div id="Nick_plot"></div>
+                </div>
+            </div>
 
 
-                    <script src="{{ url_for('static', filename='./js/dashboard/dashboard-1.js')}}"></script>
-
-                    <!-- Required vendors -->
-                    <script src="{{ url_for('static', filename='./vendor/global/global.min.js')}}"></script>
-                    <script src="{{ url_for('static', filename='./js/custom.min.js')}}"></script>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">5-Year Misery Index</h4>
+                </div>
+                <div class="card-body">
+                    <div id="Nick_plot2"></div>
+                </div>
+            </div>
 
 
 
-                    <!-- Daterangepicker -->
-                    <!-- momment js is must -->
-                    <script src="{{ url_for('static', filename='./vendor/moment/moment.min.js')}}"></script>
-                    <script
-                        src="{{ url_for('static', filename='./vendor/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-
-                    <!-- Daterangepicker -->
-                    <script
-                        src="{{ url_for('static', filename='./js/plugins-init/bs-daterange-picker-init.js')}}"></script>
-
-                    <!-- Jquery Validation -->
-                    <script
-                        src="{{ url_for('static', filename='./vendor/jquery-validation/jquery.validate.min.js')}}"></script>
-                    <!-- Form validate init -->
-                    <script src="{{ url_for('static', filename='./js/plugins-init/jquery.validate-init.js')}}"></script>
-
-                    <!-- Ticker selection -->
-                    <!-- <script src="{{ url_for('static', filename='./vendor/select2/js/select2.full.min.js')}}"></script>
-    <script src="{{ url_for('static', filename='./js/plugins-init/select2-init.js')}}"></script> -->
 
 
-                    <!--Tabs script-->
-                    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-                        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-                        crossorigin="anonymous"></script>
+
+
+
+            <!--**********************************
+                        Content body end
+                        ***********************************-->
+
+
+            <!--**********************************
+                            Footer start
+                        ***********************************-->
+            <div class="footer">
+                <div class="copyright">
+                    <p>Copyright © Designed Team Logic; GW BootCamp<a href="#" target="_blank">Quixkit</a>
+                        March 2021</p>
+                </div>
+            </div>
+            <!--**********************************
+                                Footer end
+                            ***********************************-->
+
+            <!--**********************************
+                            Support ticket button start
+                            ***********************************-->
+
+            <!--**********************************
+                            Support ticket button end
+                            ***********************************-->
+
+
+
+            <!--**********************************
+                            Main wrapper end
+                        ***********************************-->
+
+            <!--**********************************
+                            Scripts
+                        ***********************************-->
+            <!-- Required vendors -->
+            <script src="{{ url_for('static', filename='./vendor/global/global.min.js')}}"></script>
+            <script src="{{ url_for('static', filename='./js/quixnav-init.js')}}"></script>
+            <script src="{{ url_for('static', filename='./js/custom.min.js')}}"></script>
+
+
+
+            <!-- Vectormap -->
+            <!-- <script src="{{ url_for('static', filename='./vendor/raphael/raphael.min.js')}}"></script> -->
+
+
+
+            <!-- <script src="{{ url_for('static', filename='./vendor/circle-progress/circle-progress.min.js')}}"></script> -->
+            <!-- <script src="{{ url_for('static', filename='./vendor/chart.js/Chart.bundle.min.js')}}"></script> -->
+
+            <!-- <script src="{{ url_for('static', filename='./vendor/gaugeJS/dist/gauge.min.js')}}"></script> -->
+
+            <!--  flot-chart js -->
+            <!-- <script src="{{ url_for('static', filename='./vendor/flot/jquery.flot.js')}}"></script> -->
+            <!-- <script src="{{ url_for('static', filename='./vendor/flot/jquery.flot.resize.js')}}"></script> -->
+
+            <!-- Owl Carousel -->
+            <!-- <script src="{{ url_for('static', filename='./vendor/owl-carousel/js/owl.carousel.min.js')}}"></script> -->
+
+            <!-- Counter Up -->
+            <!-- <script src="{{ url_for('static', filename='./vendor/jqvmap/js/jquery.vmap.min.js')}}"></script> -->
+            <!-- <script src="{{ url_for('static', filename='./vendor/jqvmap/js/jquery.vmap.usa.js')}}"></script> -->
+            <!-- <script src="{{ url_for('static', filename='./vendor/jquery.counterup/jquery.counterup.min.js')}}"></script> -->
+
+
+            <!-- <script src="{{ url_for('static', filename='./js/dashboard/dashboard-1.js')}}"></script> -->
+
+            <!-- Required vendors -->
+            <!-- <script src="{{ url_for('static', filename='./vendor/global/global.min.js')}}"></script> -->
+            <!-- <script src="{{ url_for('static', filename='./js/custom.min.js')}}"></script> -->
+
+
+
+            <!-- Daterangepicker -->
+            <!-- momment js is must -->
+            <script src="{{ url_for('static', filename='./vendor/moment/moment.min.js')}}"></script>
+            <script
+                src="{{ url_for('static', filename='./vendor/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+
+            <!-- Daterangepicker -->
+            <script src="{{ url_for('static', filename='./js/plugins-init/bs-daterange-picker-init.js')}}"></script>
+
+            <!-- Jquery Validation -->
+            <script src="{{ url_for('static', filename='./vendor/jquery-validation/jquery.validate.min.js')}}"></script>
+            <!-- Form validate init -->
+            <script src="{{ url_for('static', filename='./js/plugins-init/jquery.validate-init.js')}}"></script>
+
+            <!-- Ticker selection -->
+            <!-- <script src="{{ url_for('static', filename='./vendor/select2/js/select2.full.min.js')}}"></script>
+                      <script src="{{ url_for('static', filename='./js/plugins-init/select2-init.js')}}"></script> -->
+
+
+            <!--Tabs script-->
+            <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+                integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+                crossorigin="anonymous"></script>
 
 </body>
 

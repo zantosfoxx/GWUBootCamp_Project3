@@ -11,27 +11,26 @@
 var apiKey = "wJwp9NFb-QWNy3d1f9_w";
 
 
-var start_date = '2007-01-01'
-var gold_url = `https://www.quandl.com/api/v3/datasets/LBMA/GOLD/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_date}&order=asc`
+var start_date_stress = '2007-01-01'
+var gold_url = `https://www.quandl.com/api/v3/datasets/LBMA/GOLD/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_datestart_stress}&order=asc`
 
-var ferd_url = `https://www.quandl.com/api/v3/datasets/FED/RIFSPFF_N_D.json?api_key=KqktrbxvFdVxc81KAHb6&order=asc`
-var BTC_url = `https://www.quandl.com/data.json?api_key=wJwp9NFb-QWNy3d1f9_w/CUR/CAD&order=asc`
+
 var app_gold = "/gold_returns"
 var app_ticker = "/ticker_returns"
 // Initialise the web page with county1 and county 2 default comparisons
-function Initialize() {
+function Initialize_stress() {
   var value = 1000;
   var ticker = "AAPL"
   var inv_startdate = `2018-10-19`
   var inv_enddate = `2020-02-05`
-  gold(ticker, inv_startdate, inv_enddate, value)
+  gold_stress(ticker, inv_startdate, inv_enddate, value)
   Invest(ticker, inv_startdate, inv_enddate, value)
   //console.log(`Initialise is running`)
 };
-Initialize();
+Initialize_stress();
 
-function gold(ticker, inv_startdate, inv_enddate, value) {
-  var ticker_url = `https://www.quandl.com/api/v3/datasets/EOD/${ticker}/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_date}&order=asc`
+function gold_stress(ticker, inv_startdate, inv_enddate, value) {
+  var ticker_url = `https://www.quandl.com/api/v3/datasets/EOD/${ticker}/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_date_stress}&order=asc`
 
   d3.json(gold_url).then(function (data_gold) {
     d3.json(ticker_url).then(function (data_ticker) {
@@ -313,28 +312,28 @@ const minValueOfY = Math.min(data_ticker.dataset_data.data.map(o => o[1]), 0)
 /*=================================================================
           ON CHANGE PROCESSING
 ===================================================================*/
-function processSubmit() {
+function processSubmit_stress() {
   // console.log('test');
 
-  ticker = document.getElementsByClassName('token-input-token')[0].innerText.replace('×', '').replace('\n', '').trim();
-  daterange = document.getElementsByClassName('drp-selected')[0].innerText.split(" - ")
-  start_split_date = daterange[0].split("/")
-  startdate = `${start_split_date[2]}-${start_split_date[0]}-${start_split_date[1]}`
+  var ticker = document.getElementsByClassName('token-input-token')[0].innerText.replace('×', '').replace('\n', '').trim();
+  var daterange = document.getElementsByClassName('drp-selected')[0].innerText.split(" - ")
+  var start_split_date = daterange[0].split("/")
+  var startdate = `${start_split_date[2]}-${start_split_date[0]}-${start_split_date[1]}`
 
-  end_split_date = daterange[1].split("/")
-  enddate = `${end_split_date[2]}-${end_split_date[0]}-${end_split_date[1]}`
+  var end_split_date = daterange[1].split("/")
+  var enddate = `${end_split_date[2]}-${end_split_date[0]}-${end_split_date[1]}`
 
-  amount = document.getElementById('val-number').value
+  var amount = document.getElementById('val-number').value
   console.log(amount)
 
-  gold(ticker, String(startdate), String(enddate), amount)
+  gold_stress(ticker, String(startdate), String(enddate), amount)
   console.log(`ProcessSubmit is running`)
   Invest(ticker, String(startdate), String(enddate), amount)
 
 
 }
 
-document.getElementById('submit').addEventListener('click', processSubmit);
+document.getElementById('submit').addEventListener('click', processSubmit_stress);
 
 /*=================================================================
            ON CHANGE PROCESSING ---- ENDS

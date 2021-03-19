@@ -2,31 +2,33 @@
 var apiKey = "wJwp9NFb-QWNy3d1f9_w";
 // var ticker = "AAPL"
 // var value = 1000;
-var start_date = '2005-01-01'
-var gold_url = `https://www.quandl.com/api/v3/datasets/LBMA/GOLD/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_date}&order=asc`
+var start_date_app = '2005-01-01'
+var gold_url_app = `https://www.quandl.com/api/v3/datasets/LBMA/GOLD/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_date_app}&order=asc`
 
 var ferd_url = `https://www.quandl.com/api/v3/datasets/FED/RIFSPFF_N_D.json?api_key=KqktrbxvFdVxc81KAHb6&order=asc`
 var BTC_url = `https://www.quandl.com/data.json?api_key=wJwp9NFb-QWNy3d1f9_w/CUR/CAD&order=asc`
 var app_gold = "/gold_returns"
 var app_ticker = "/ticker_returns"
 // Initialise the web page with county1 and county 2 default comparisons
-function Initialize() {
+function Initialize_price() {
   var value = 1000;
   var ticker = "AAPL"
   var inv_startdate = `2019-10-19`
   var  inv_enddate = `2020-02-05`
-  prices(ticker)
+  prices33(ticker)
   //gold(ticker, inv_startdate, inv_enddate, value)
   decline(ticker, inv_startdate, inv_enddate, value)
   //volatility(ticker)
   //console.log(`Initialise is running`)
 };
-Initialize();
+Initialize_price();
 
 
-function prices(ticker){
-  var ticker_url = `https://www.quandl.com/api/v3/datasets/EOD/${ticker}/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_date}&order=asc`
-  d3.json(gold_url).then(function (data_gold) {
+function prices33(ticker){
+  console.log(`app_prices start_date:${start_date}`)
+  var ticker_url_app = `https://www.quandl.com/api/v3/datasets/EOD/${ticker}/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_date_app}&order=asc`
+  console.log(`app_prices start_date:${gold_url_app}`)
+  d3.json(gold_url_app).then(function (data_gold) {
 
     /*===============================
            GOLD 
@@ -44,7 +46,7 @@ function prices(ticker){
           STOCK CHOICE
     ===============================*/
 
-    d3.json(ticker_url).then(function (data_ticker) {
+    d3.json(ticker_url_app).then(function (data_ticker) {
 
       var dates_ticker = data_ticker.dataset_data.data.map(d => d[0]);
       var closingPrices_ticker = data_ticker.dataset_data.data.map(d => d[1]);
@@ -158,6 +160,7 @@ function prices(ticker){
 
 //==========TRACK YOUR INVESTMENT========================
 function decline(ticker, inv_startdate, inv_enddate, value){
+  console.log(`app_decline start_date:${inv_startdate}`)
   var ticker_url = `https://www.quandl.com/api/v3/datasets/EOD/${ticker}/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${inv_startdate}&end_date=${inv_enddate}&order=asc`
   var gold_url = `https://www.quandl.com/api/v3/datasets/LBMA/GOLD/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${inv_startdate}&end_date=${inv_enddate}&order=asc`
   d3.json(gold_url).then(function (data_gold) {
@@ -392,22 +395,22 @@ function decline(ticker, inv_startdate, inv_enddate, value){
 /*=================================================================
           ON CHANGE PROCESSING
 ===================================================================*/
-function processSubmit() {
+function processSubmit_app() {
   // console.log('test');
 
-  ticker = document.getElementsByClassName('token-input-token')[0].innerText.replace('×', '').replace('\n', '').trim();
-  daterange = document.getElementsByClassName('drp-selected')[0].innerText.split(" - ")
-  start_split_date = daterange[0].split("/")
-  startdate = `${start_split_date[2]}-${start_split_date[0]}-${start_split_date[1]}`
+  var ticker = document.getElementsByClassName('token-input-token')[0].innerText.replace('×', '').replace('\n', '').trim();
+  var daterange = document.getElementsByClassName('drp-selected')[0].innerText.split(" - ")
+  var start_split_date = daterange[0].split("/")
+  var startdate = `${start_split_date[2]}-${start_split_date[0]}-${start_split_date[1]}`
 
-  end_split_date = daterange[1].split("/")
-  enddate = `${end_split_date[2]}-${end_split_date[0]}-${end_split_date[1]}`
+  var end_split_date = daterange[1].split("/")
+  var enddate = `${end_split_date[2]}-${end_split_date[0]}-${end_split_date[1]}`
 
-  amount = document.getElementById('val-number').value
- 
+  var amount = document.getElementById('val-number').value
+ console.log(String(startdate))
 
   
-  prices(ticker)
+  prices33(ticker)
   decline(ticker, String(startdate), String(enddate), amount)
 
 
@@ -418,7 +421,7 @@ function processSubmit() {
 
 }
 
-document.getElementById('submit').addEventListener('click', processSubmit);
+document.getElementById('submit').addEventListener('click', processSubmit_app);
 
 /*=================================================================
            ON CHANGE PROCESSING ---- ENDS

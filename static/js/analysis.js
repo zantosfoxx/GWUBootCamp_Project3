@@ -4,7 +4,7 @@ var apiKey = "wJwp9NFb-QWNy3d1f9_w";
 var app_gold = "/gold_returns"
 
 // Initialise the web page with county1 and county 2 default comparisons
-function Initialize() {
+function Initialize_analyse() {
   var app_ticker = "/ticker_returns"
   var value = 1000;
   var ticker = "AAPL"
@@ -12,16 +12,16 @@ function Initialize() {
   var inv_enddate = `2020-02-05`
  
 
-  volatility(ticker, app_ticker)
+  volatility_analyse(ticker, app_ticker)
   //console.log(`Initialise is running`)
 };
-Initialize();
+Initialize_analyse();
 
 
 
 //=============================
 
-function volatility(ticker, app_ticker) {
+function volatility_analyse(ticker, app_ticker) {
   /*========Box plot id=box_plot =======STARTS*/
 
  
@@ -156,7 +156,7 @@ function volatility(ticker, app_ticker) {
 /*=================================================================
           ON CHANGE PROCESSING
 ===================================================================*/
-function processSubmit() {
+function processSubmit_analyse() {
   // console.log('test');
 
 
@@ -180,7 +180,7 @@ function processSubmit() {
 
   d3.json(api_call).then(data => {
     console.log(data);
-    volatility(ticker, api_call)
+    volatility_analyse(ticker, api_call)
   });
 
   // fetch('/ticker_test', {
@@ -216,7 +216,7 @@ function processSubmit() {
 //  console.log(`ProcessSubmit is running`)
 
 
-document.getElementById('submit').addEventListener('click', processSubmit);
+document.getElementById('submit').addEventListener('click', processSubmit_analyse);
 
 /*=================================================================
            ON CHANGE PROCESSING ---- ENDS

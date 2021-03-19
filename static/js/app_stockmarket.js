@@ -49,7 +49,7 @@ end_date_holder.on("change", valueEndDate)
 
 // ************* Grab Value Functions  *****************
 function valueStartDate() {
-    start_date = d3.select("#start_date").property("value")
+    var start_date = d3.select("#start_date").property("value")
     console.log(start_date)
     return start_date
 }

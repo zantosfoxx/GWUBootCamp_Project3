@@ -1,5 +1,5 @@
 import json
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request, make_response, redirect
 import pandas as pd
 import os
 import requests
@@ -54,6 +54,33 @@ def tickerlist():
     return tickerlist_json
 
     #=======MEAKIN STARTS==========
+@app.route("/ticker_test")
+def ticker_test(): 
+    #if methods == "POST"
+    quandl.ApiConfig.api_key = API_key
+    # start_date = '2019-10-19'
+    # end_date = '2020-02-05'
+    # ticker = "AAPL"
+
+    # inputs = request.get_json()
+    ticker = request.args.get("ticker")
+    start_date = request.args.get("start_date")
+    end_date = request.args.get("end_date")
+    
+
+    EOD = quandl.get(f'EOD/{ticker}', start_date = f'{start_date}', end_date = f'{end_date}').reset_index()
+    EOD['Returns'] =EOD['Close'].pct_change(1)
+    EOD["Cum_returns"] = (EOD['Returns']+1).cumprod()
+    
+
+    EOD =EOD[['Date','Open', 'High', 'Low', 'Returns', 'Cum_returns']]
+    EOD['Date'] = EOD['Date'].dt.strftime('%Y-%m-%d')
+
+    data_data = EOD.to_json(orient="records")
+
+    # print(data_data)
+
+    return data_data
 
 @app.route("/ticker_returns")
 def ticker_returns():
@@ -62,7 +89,7 @@ def ticker_returns():
     EOD = quandl.get('EOD/AAPL', start_date = start_date).reset_index()
     EOD['Returns'] =EOD['Close'].pct_change(1)
     EOD["Cum_returns"] = (EOD['Returns']+1).cumprod()
-    EOD.head()
+    #EOD.head()
 
     EOD =EOD[['Date','Open', 'High', 'Low', 'Returns', 'Cum_returns']]
     EOD['Date'] = EOD['Date'].dt.strftime('%Y-%m-%d')
@@ -97,7 +124,7 @@ def dataPrime():
     query = pd.read_sql("select * from us_prime_rate",cloud_conn)
     data_prime =query.to_json(orient ="records")
   
-    print(query)
+    #print(query)
     cloud_conn.close()
     # return data
     return data_prime
@@ -109,7 +136,7 @@ def dataOil():
     query = pd.read_sql("select * from oil_prices",cloud_conn)
     data_oil =query.to_json(orient ="records")
 
-    print(query)
+    ##print(query)
     cloud_conn.close()
     # return data
     return data_oil
@@ -136,7 +163,7 @@ def dataPrimer():
     query = pd.read_sql("select * from us_prime_rate",cloud_conn)
     data_primer =query.to_json(orient ="records")
 
-    print(query)
+    ##print(query)
     cloud_conn.close()
 
     #return data
@@ -160,7 +187,7 @@ def yearMortgage_15():
     query = pd.read_sql("select * from mortgage15y_rates",cloud_conn)
     data_15yrs =query.to_json(orient ="records")
 
-    print(query)
+    ##print(query)
     cloud_conn.close()
     # return data
     return data_15yrs
@@ -172,7 +199,7 @@ def dataPrime5yrs():
     query = pd.read_sql("select * from us_5yprime_rate",cloud_conn)
     data_5yrs =query.to_json(orient ="records")
 
-    print(query)
+   # print(query)
     cloud_conn.close()
     # return data
     return data_5yrs
@@ -184,7 +211,7 @@ def yearMortgage_7():
     query = pd.read_sql("select * from mortgage7y_rates",cloud_conn)
     data_7yrs =query.to_json(orient ="records")
 
-    print(query)
+    ##print(query)
     cloud_conn.close()
     # return data
     return data_7yrs
@@ -196,7 +223,7 @@ def yearMortgage_5():
     query = pd.read_sql("select * from mortgage5y_rates",cloud_conn)
     data_5yrs =query.to_json(orient ="records")
 
-    print(query)
+    ##print(query)
     cloud_conn.close()
     # return data
     return data_5yrs
