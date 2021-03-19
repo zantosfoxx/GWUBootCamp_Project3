@@ -25,9 +25,9 @@ Initialize_price();
 
 
 function prices33(ticker){
-  console.log(`app_prices start_date:${start_date}`)
+  //console.log(`app_prices start_date:${start_date}`)
   var ticker_url_app = `https://www.quandl.com/api/v3/datasets/EOD/${ticker}/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_date_app}&order=asc`
-  console.log(`app_prices start_date:${gold_url_app}`)
+  //console.log(`app_prices start_date:${gold_url_app}`)
   d3.json(gold_url_app).then(function (data_gold) {
 
     /*===============================
@@ -160,7 +160,7 @@ function prices33(ticker){
 
 //==========TRACK YOUR INVESTMENT========================
 function decline(ticker, inv_startdate, inv_enddate, value){
-  console.log(`app_decline start_date:${inv_startdate}`)
+ // console.log(`app_decline start_date:${inv_startdate}`)
   var ticker_url = `https://www.quandl.com/api/v3/datasets/EOD/${ticker}/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${inv_startdate}&end_date=${inv_enddate}&order=asc`
   var gold_url = `https://www.quandl.com/api/v3/datasets/LBMA/GOLD/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${inv_startdate}&end_date=${inv_enddate}&order=asc`
   d3.json(gold_url).then(function (data_gold) {
@@ -407,7 +407,7 @@ function processSubmit_app() {
   var enddate = `${end_split_date[2]}-${end_split_date[0]}-${end_split_date[1]}`
 
   var amount = document.getElementById('val-number').value
- console.log(String(startdate))
+ //console.log(String(startdate))
 
   
   prices33(ticker)

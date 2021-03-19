@@ -12,7 +12,7 @@ var apiKey = "wJwp9NFb-QWNy3d1f9_w";
 
 
 var start_date_stress = '2007-01-01'
-var gold_url = `https://www.quandl.com/api/v3/datasets/LBMA/GOLD/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_datestart_stress}&order=asc`
+//var gold_url = `https://www.quandl.com/api/v3/datasets/LBMA/GOLD/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_date_stress}&order=asc`
 
 
 var app_gold = "/gold_returns"
@@ -31,6 +31,7 @@ Initialize_stress();
 
 function gold_stress(ticker, inv_startdate, inv_enddate, value) {
   var ticker_url = `https://www.quandl.com/api/v3/datasets/EOD/${ticker}/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_date_stress}&order=asc`
+  var gold_url = `https://www.quandl.com/api/v3/datasets/LBMA/GOLD/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_date_stress}&order=asc`
 
   d3.json(gold_url).then(function (data_gold) {
     d3.json(ticker_url).then(function (data_ticker) {
@@ -281,26 +282,61 @@ function gold_stress(ticker, inv_startdate, inv_enddate, value) {
 
 
 function Invest(ticker, inv_startdate, inv_enddate, value) {
-  var ticker_url = `https://www.quandl.com/api/v3/datasets/EOD/${ticker}/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_date}&order=asc`
-
+  var ticker_url = `https://www.quandl.com/api/v3/datasets/EOD/${ticker}/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${inv_startdate}&end_date=${inv_enddate}&order=asc`
+  var gold_url = `https://www.quandl.com/api/v3/datasets/LBMA/GOLD/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${inv_startdate}&end_date=${inv_enddate}&order=asc`
   d3.json(gold_url).then(function (data_gold) {
     d3.json(ticker_url).then(function (data_ticker) {
+     // console.log(gold_url)
    
 
+     var dates = data_gold.dataset_data.data.map(d => d[0]);
+     var closingPrices_gold = data_gold.dataset_data.data.map(d => d[1]);
 
-//=====MAX Investment values=====
-const maxValueOfY = Math.min.apply(Math, data_ticker.dataset_data.data.map(function(o) { return o[1]; }))
-var ticker_max = data_ticker.dataset_data.data.filter(d => d[1] == maxValueOfY)
-console.log(maxValueOfY)
+     var dates_ticker = data_ticker.dataset_data.data.map(d => d[0]);
+     var closingPrices_ticker = data_ticker.dataset_data.data.map(d => d[1]);
+
+         //=====Investment values=====
+     var gold_qty = value / closingPrices_gold[0]
+     var ticker_qty = value / closingPrices_ticker[0]
+
+
+     var gold_inv = closingPrices_gold.map(d => d * gold_qty)
+     var ticker_inv = closingPrices_ticker.map(d => d * ticker_qty)
+
+
+
 //console.log(document.getElementById("fa-usd"))
-document.getElementById("invest-amount").textContent = `$${value}`
-document.getElementById('investment').textContent = `Investment Date: ${ticker_max[0][0]}`
+
+// Initial Investment
+console.log(`Investment update is running`)
+document.getElementById("invest-amount").textContent = `$${Math.round((ticker_inv[0]), 2)}`
+document.getElementById('investment').textContent = `Investment Date: ${inv_startdate}`
 
 
+
+//=====Max Investment values=====
+const maxValueOfY = Math.max.apply(Math, data_ticker.dataset_data.data.map(function(o) { return o[1]; }))
+var ticker_max = data_ticker.dataset_data.data.filter(d => d[1] == maxValueOfY)
+document.getElementById("max-return").textContent = `$${Math.round((ticker_max[0][1]*ticker_qty - ticker_inv[0]), 2)}`
+document.getElementById('max-return_date').textContent = `Divestment Date: ${ticker_max[0][0]}`
+
+
+// console.log(ticker_max)
+console.log(Math.round((ticker_max[0][1]), 2))
 
 //=====Min Investment values=====
-const minValueOfY = Math.min(data_ticker.dataset_data.data.map(o => o[1]), 0)
+const minValueOfY = Math.min.apply(Math, data_ticker.dataset_data.data.map(function(o) { return o[1]; }))
+var ticker_max = data_ticker.dataset_data.data.filter(d => d[1] == minValueOfY)
+document.getElementById("min-return").textContent = `$${Math.round((ticker_max[0][1]*ticker_qty - ticker_inv[0]), 2)}`
+document.getElementById('min-return_date').textContent = `Divestment Date: ${ticker_max[0][0]}`
 
+//=====Min Investment values=====
+const Actual_inv = data_ticker.dataset_data.data.filter(d => d[0] == inv_enddate ) 
+document.getElementById("act-return").textContent = `$${Math.round((Actual_inv[0][1]*ticker_qty - ticker_inv[0]), 2)}`
+document.getElementById('act-return_date').textContent = `Divestment Date: ${inv_enddate}`
+// console.log(ticker_max[0][1])
+// console.log(document.getElementById("max-return"))
+// console.log(document.getElementById("max-return_date").textContent)
 //var open_gold_recession = data_gold.dataset_data.data.filter(d => d[0] == open_recession)
 //var close_gold_recession = data_gold.dataset_data.data.filter(d => d[0] == close_recession)
     });

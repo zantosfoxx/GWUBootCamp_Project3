@@ -578,7 +578,7 @@ hr {
 
 small,
 .small {
-  font-size: 80%;
+  font-size: 50%;
   font-weight: 400; }
 
 mark,
@@ -3570,10 +3570,26 @@ input[type="button"].btn-block {
   .card > .list-group:last-child .list-group-item:last-child {
     border-bottom-right-radius: 0.25rem;
     border-bottom-left-radius: 0.25rem; }
+.card_panel{
+
+padding-left:  10%; 
+padding-right: 10%;
+padding-top : 5%;
+padding-top: 5% ;
+}
+   
+
+      
 
 .card-body {
   flex: 1 1 auto;
-  padding: 1.25rem; }
+  padding: 0rem; }
+
+  .card-body2 {
+    flex: 1 1 auto;
+    padding: 1rem;
+  }
+
 
 .card-title {
   margin-bottom: 0.75rem; }

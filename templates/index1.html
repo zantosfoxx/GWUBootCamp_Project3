@@ -253,89 +253,112 @@
 
         <!-- USER SELECTION -->
         <br>
-        <br>
+      
         <div class = "row"> <!--Start of panel-->
-            <div class = "col-md-2">
-        <h4>Stress Test & Predict Your Investment Performance</h4>
-        <!--start of Meakin-->
-        <div class="nav bg-dark py-3"></div>
-        <br>
-        <br>
+            <div class = "col-md-3">
+                <h4 style="font-size: 95%; text-align: center;">Investment Performance</h4>
+                <!--start of Meakin-->
+                <div class="nav bg-dark py-3"></div>
+                <br>
+         <div class = "row">
+             <div class = "col-md-12">
+                
+                    <div class="card border-light rounded h-80">
+                        <div class="card-body" id = "card_panel">
+                            <h4 class="card-title" style="font-size: 85%; text-align: center;">Stock Listed Companies</h4>
+                            <!-- <p class="card-text">Select Company Ticker</p> -->
+                            <hr>
+                            <input type="text" name="ticker_input" id="ticker_input" class="form-control" />
+    
+                        </div>
+                        <!--Start of autocpmplete search -->
+    
+    
+    
+                        <!-- Tokeninput plugin library -->
+                        <script src="{{ url_for('static', filename='js/jquery.tokeninput.js') }}" defer></script>
+                        <script src="{{ url_for('static', filename='js/counties.js') }}"></script>
+                        <script> var tickers = counties
+                            $(document).ready(function () {
+                                $("#ticker_input").tokenInput(tickers);
+                            });
+                        </script>
+    
+                        <!--end of jumbotron code and autocomplete search-->
+                    </div>
+                 <!-- ticker symbol ends -->
+             </div> 
+
+         </div>   
+         <div class = "row ">
+            <div class = "col-md-6" id = "card_panel">
+               
+                    <!-- investment amount starts -->
+                    <div class="card border-light rounded h-80">
+                        <div class="card-body">
+                            <h4 class="card-title" style="font-size: 80%; padding: 0em; ">Amount Invested</h4> <span class="text-danger">*</span></p>
+                            <!-- <p class="card-text">Investment amount ($)  -->
+                            <hr>
+                            <div class="form-validation">
+                                <form class="form-valide" action="#" method="post">
+                                    <div class="form-group row">
+                                        <!-- <label class="col-lg-12 col-form-label" for="val-number">
+                                                </label> -->
+                                        <div class="col-lg-10">
+                                            <input  type="text" class="form-control" id="val-number" name="val-number"
+                                                placeholder="1000">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div> <!-- investment amount ends -->
+                
+            </div> 
+            <div class = "col-md-6" id = "card_panel">
+                
+                    <!-- Date picker starts -->
+                    <div class="card border-light rounded h-80">
+                        <div class="card-body" >
+                            <h4 class="card-title" style="font-size: 85%; text-align: center;">Investment Period</h4>
+                            <!-- <p class="card-text">Select a period of your investment</p> -->
+                            <hr>
+                            <div class="example">
+    
+                                <input class="form-control input-daterange-datepicker" type="text" name="daterange"
+                                    id="daterange" value="02/01/2020 - 01/31/2020" style="font-size: 70%; text-align: center; max-width: 150%; padding-right: 0;">
+                            </div>
+                        </div>
+                    </div>
+            </div> <!-- Date picker ends -->
+            
+
+        </div> 
+        <div class = "row">
+            <div class = "col-md-12" id = "card_panel">
+                <div class="card border-light rounded h-80">
+                    <div class="card-body" >
+                        <h4 class="card-title" style="font-size: 85%; text-align: center;">Analyse your investment</h4>
+
+                        <!-- <p> Analyse your investment</p> -->
+                        <hr>
+                        <button id="submit" type="submit" class="btn btn-success" style="font-size:75%">Track Performance</button>
+
+                    </div>
+                </div>
+            </div> 
+
+        </div>  
+
+      
+    
         <!-- Card Start-->
         <div class="row row-cols-1 row-cols-md-4 g-3">
+         
+
+           
             <div class="col">
-                <div class="card border-light rounded h-80">
-                    <div class="card-body">
-                        <h4 class="card-title">Stock Listed Companies</h4>
-                        <p class="card-text">Select Company Ticker</p>
-                        <hr>
-                        <input type="text" name="ticker_input" id="ticker_input" class="form-control" />
 
-                    </div>
-                    <!--Start of autocpmplete search -->
-
-
-
-                    <!-- Tokeninput plugin library -->
-                    <script src="{{ url_for('static', filename='js/jquery.tokeninput.js') }}" defer></script>
-                    <script src="{{ url_for('static', filename='js/counties.js') }}"></script>
-                    <script> var tickers = counties
-                        $(document).ready(function () {
-                            $("#ticker_input").tokenInput(tickers);
-                        });
-                    </script>
-
-                    <!--end of jumbotron code and autocomplete search-->
-                </div>
-            </div> <!-- ticker symbol ends -->
-            <div class="col">
-                <!-- investment amount starts -->
-                <div class="card border-light rounded h-80">
-                    <div class="card-body">
-                        <h4 class="card-title">Investment Amount</h4>
-                        <p class="card-text">Investment amount ($) <span class="text-danger">*</span></p>
-                        <hr>
-                        <div class="form-validation">
-                            <form class="form-valide" action="#" method="post">
-                                <div class="form-group row">
-                                    <!-- <label class="col-lg-12 col-form-label" for="val-number">
-                                            </label> -->
-                                    <div class="col-lg-10">
-                                        <input type="text" class="form-control" id="val-number" name="val-number"
-                                            placeholder="1000">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div> <!-- investment amount ends -->
-            </div>
-            <div class="col">
-                <!-- Date picker starts -->
-                <div class="card border-light rounded h-80">
-                    <div class="card-body">
-                        <h4 class="card-title">Investment Period</h4>
-                        <p class="card-text">Select a period of your investment</p>
-                        <hr>
-                        <div class="example">
-
-                            <input class="form-control input-daterange-datepicker" type="text" name="daterange"
-                                id="daterange" value="01/01/2015 - 01/31/2015">
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- Date picker ends -->
-            <div class="col">
-                <div class="card border-light rounded h-80">
-                    <div class="card-body">
-                        <h4 class="card-title">Track your Investment</h4>
-
-                        <p> Analyse your investment</p>
-                        <hr>
-                        <button id="submit" type="submit" class="btn btn-success">Track Performance</button>
-
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -351,7 +374,7 @@
        
             <!--div class="content-body"-->
             <!-- row -->
-            <div class=" col-md-10 container-fluid">
+            <div class=" col-md-9 container-fluid">
                 <div class="row">
                     <div class="col-lg-3 col-sm-6">
                         <div class="card">
@@ -374,8 +397,8 @@
                             <div class="stat-widget-two card-body">
                                 <div class="stat-content">
                                     <div class="stat-text">Maximum Possible Return</div>
-                                    <div class="stat-digit"> <i class="fa fa-usd"></i>7800</div>
-                                    <p id ="max-return">
+                                    <div class="stat-digit" id = "max-return"> <i class="fa fa-usd"></i>7800</div>
+                                    <p id ="max-return_date">
                                         Divestment Date:
                                     </p>
                                   
@@ -392,8 +415,8 @@
                                 <div class="stat-content">
                                     <div class="stat-text">Minimum Possible Return</div>
 
-                                    <div class="stat-digit"> <i class="fa fa-usd"></i> 500</div>
-                                    <p id ="min-return">
+                                    <div class="stat-digit" id ="min-return"> <i class="fa fa-usd"></i> 500</div>
+                                    <p id ="min-return_date">
                                         Divestment Date:
                                     </p>
                                 </div>
@@ -409,8 +432,8 @@
                                 <div class="stat-content">
                                     <div class="stat-text">Actual Return</div>
 
-                                    <div class="stat-digit"> <i class="fa fa-usd"></i>650</div>
-                                    <p id ="actual-return">
+                                    <div class="stat-digit" id ="act-return"> <i class="fa fa-usd"></i>650</div>
+                                    <p id ="act-return_date">
                                         Divestment Date:
                                     </p>
                                 </div>
