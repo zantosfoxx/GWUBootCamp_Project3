@@ -78,6 +78,8 @@
     <script src="{{ url_for('static', filename='./js/app.js')}}" defer></script>
     <script src="{{ url_for('static', filename='./js/stress_test.js')}}" defer></script>
     <script src="{{ url_for('static', filename='./js/plots.js')}}" defer></script>
+    <script src="{{ url_for('static', filename='./js/analysis.js')}}" defer></script>
+
 
     <!-- Vera's app_stockmarket.js  -->
     <script src="{{ url_for('static', filename='./js/app_stockmarket.js')}}" defer></script>
@@ -247,6 +249,95 @@
         <!--**********************************
                 Sidebar end
                  ***********************************-->
+
+                 <!-- ==================TRACK YOUR IVESTMENT STARTS -->
+
+                 <!-- USER SELECTION -->
+                 <br>
+                 <br>
+                 <h4>Stress Test & Predict Your Investment Performance</h4>
+                 <!--start of Meakin-->
+                 <div class="nav bg-dark py-3"></div>
+                 <br>
+                 <br>
+                  <!-- Card Start-->
+                <div class="row row-cols-1 row-cols-md-4 g-3">
+                    <div class="col">
+                        <div class="card border-light rounded h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">Stock Listed Companies</h4>
+                                <p class="card-text">Select Company Ticker</p>
+                                <hr>
+                                <input type="text" name="ticker_input" id="ticker_input" class="form-control"/>
+                                                                
+                            </div>
+                            <!--Start of autocpmplete search -->
+    
+
+
+<!-- Tokeninput plugin library -->
+<script src= "{{ url_for('static', filename='js/jquery.tokeninput.js') }}" defer></script>
+<script src="{{ url_for('static', filename='js/counties.js') }}"></script>
+<script> var tickers = counties
+$(document).ready(function() {
+$("#ticker_input").tokenInput(tickers);
+});
+</script>     
+     
+<!--end of jumbotron code and autocomplete search-->
+                        </div>
+                    </div> <!-- ticker symbol ends -->
+                    <div class="col"> <!-- investment amount starts -->
+                        <div class="card border-light rounded h-100"> 
+                            <div class="card-body">
+                                <h4 class="card-title">Investment Amount</h4>
+                                <p class="card-text">Investment amount ($) <span
+                                class="text-danger">*</span></p>
+                                <hr>
+                                <div class="form-validation">
+                                    <form class="form-valide" action="#" method="post">
+                                        <div class="form-group row"> 
+                                            <!-- <label class="col-lg-12 col-form-label" for="val-number">
+                                            </label> -->
+                                            <div class="col-lg-10">
+                                                <input type="text" class="form-control" id="val-number" name="val-number" placeholder="1000">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div> 
+                            </div>
+                        </div> <!-- investment amount ends -->
+                    </div>
+                    <div class="col"> <!-- Date picker starts -->
+                        <div class="card border-light rounded h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">Investment Period</h4>
+                                <p class="card-text">Select a period of your investment</p>
+                                <hr>
+                                <div class="example">
+                                    
+                                    <input class="form-control input-daterange-datepicker" type="text" name="daterange" id = "daterange" value="01/01/2015 - 01/31/2015">
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- Date picker ends -->
+                    <div class="col">
+                        <div class="card border-light rounded h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">Track your Investment</h4>
+                                
+                                <p> Analyse your investment</p>
+                                <hr>
+                                <button id="submit" type="submit" class="btn btn-success">Track Performance</button>
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                 <br>
+                <!-- Card End-->
 
         <!--**********************************
                 Content body start
