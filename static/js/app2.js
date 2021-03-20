@@ -24,7 +24,7 @@ function build_mortgage_Plot() {
 
               year15_app = yearMortgage_15.map(d => moment(d.Date).format("YYYY-MM-DD"))
               year15_values = yearMortgage_15.map(d => d.Value)
-              console.log(prime_date)
+              //console.log(prime_date)
 
 
               var selectorOptions = {
@@ -139,7 +139,7 @@ function build_mortgage_Plot() {
                 }
               };
               Plotly.newPlot("regina_plot", data, duallayout);
-              console.log("Regina is running end")
+              //console.log("Regina is running end")
               // /*regina short term  and prime data*/
 
 

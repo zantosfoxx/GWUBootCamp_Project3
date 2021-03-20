@@ -11,30 +11,31 @@
 var apiKey = "wJwp9NFb-QWNy3d1f9_w";
 
 
-var start_date = '2007-01-01'
-var gold_url = `https://www.quandl.com/api/v3/datasets/LBMA/GOLD/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_date}&order=asc`
+var start_date_stress = '2007-01-01'
+//var gold_url = `https://www.quandl.com/api/v3/datasets/LBMA/GOLD/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_date_stress}&order=asc`
 
-var ferd_url = `https://www.quandl.com/api/v3/datasets/FED/RIFSPFF_N_D.json?api_key=KqktrbxvFdVxc81KAHb6&order=asc`
-var BTC_url = `https://www.quandl.com/data.json?api_key=wJwp9NFb-QWNy3d1f9_w/CUR/CAD&order=asc`
+
 var app_gold = "/gold_returns"
 var app_ticker = "/ticker_returns"
 // Initialise the web page with county1 and county 2 default comparisons
-function Initialize() {
+function Initialize_stress() {
   var value = 1000;
   var ticker = "AAPL"
   var inv_startdate = `2018-10-19`
   var inv_enddate = `2020-02-05`
-  gold(ticker, inv_startdate, inv_enddate, value)
+  gold_stress(ticker, inv_startdate, inv_enddate, value)
+  Invest(ticker, inv_startdate, inv_enddate, value)
   //console.log(`Initialise is running`)
 };
-Initialize();
+Initialize_stress();
 
-function gold(ticker, inv_startdate, inv_enddate, value) {
-  var ticker_url = `https://www.quandl.com/api/v3/datasets/EOD/${ticker}/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_date}&order=asc`
+function gold_stress(ticker, inv_startdate, inv_enddate, value) {
+  var ticker_url = `https://www.quandl.com/api/v3/datasets/EOD/${ticker}/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_date_stress}&order=asc`
+  var gold_url = `https://www.quandl.com/api/v3/datasets/LBMA/GOLD/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${start_date_stress}&order=asc`
 
   d3.json(gold_url).then(function (data_gold) {
     d3.json(ticker_url).then(function (data_ticker) {
-      console.log(data_ticker)
+      //console.log(data_ticker)
 
 
       /*======PERIODS OF  STOCK MARKET DECLINES======
@@ -103,7 +104,7 @@ function gold(ticker, inv_startdate, inv_enddate, value) {
       //console.log(close_gold_inv)
       // console.log(open_gold_inv)
       var gold_inv_change = (close_gold_inv[0][1] - open_gold_Fcrisis[0][1]) / open_gold_inv[0][1] * 100
-      console.log(gold_inv_change)
+      //console.log(gold_inv_change)
       /*===============================
                USER's Ticker
           ===============================*/
@@ -277,34 +278,98 @@ function gold(ticker, inv_startdate, inv_enddate, value) {
 };
 
 
-/* STRESS TEST*/
+/* STRESS TEST ENDS*/
+
+
+function Invest(ticker, inv_startdate, inv_enddate, value) {
+  var ticker_url = `https://www.quandl.com/api/v3/datasets/EOD/${ticker}/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${inv_startdate}&end_date=${inv_enddate}&order=asc`
+  var gold_url = `https://www.quandl.com/api/v3/datasets/LBMA/GOLD/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&column_index=2&start_date=${inv_startdate}&end_date=${inv_enddate}&order=asc`
+  d3.json(gold_url).then(function (data_gold) {
+    d3.json(ticker_url).then(function (data_ticker) {
+     // console.log(gold_url)
+   
+
+     var dates = data_gold.dataset_data.data.map(d => d[0]);
+     var closingPrices_gold = data_gold.dataset_data.data.map(d => d[1]);
+
+     var dates_ticker = data_ticker.dataset_data.data.map(d => d[0]);
+     var closingPrices_ticker = data_ticker.dataset_data.data.map(d => d[1]);
+
+         //=====Investment values=====
+     var gold_qty = value / closingPrices_gold[0]
+     var ticker_qty = value / closingPrices_ticker[0]
+
+
+     var gold_inv = closingPrices_gold.map(d => d * gold_qty)
+     var ticker_inv = closingPrices_ticker.map(d => d * ticker_qty)
+
+
+
+//console.log(document.getElementById("fa-usd"))
+
+// Initial Investment
+// console.log(`Investment update is running`)
+document.getElementById("invest-amount").textContent = `$${Math.round((ticker_inv[0]), 2)}`
+document.getElementById('investment').textContent = `Investment Date: ${inv_startdate}`
+
+
+
+//=====Max Investment values=====
+const maxValueOfY = Math.max.apply(Math, data_ticker.dataset_data.data.map(function(o) { return o[1]; }))
+var ticker_max = data_ticker.dataset_data.data.filter(d => d[1] == maxValueOfY)
+document.getElementById("max-return").textContent = `$${Math.round((ticker_max[0][1]*ticker_qty - ticker_inv[0]), 2)}`
+document.getElementById('max-return_date').textContent = `Divestment Date: ${ticker_max[0][0]}`
+
+
+// console.log(ticker_max)
+// console.log(Math.round((ticker_max[0][1]), 2))
+
+//=====Min Investment values=====
+const minValueOfY = Math.min.apply(Math, data_ticker.dataset_data.data.map(function(o) { return o[1]; }))
+var ticker_max = data_ticker.dataset_data.data.filter(d => d[1] == minValueOfY)
+document.getElementById("min-return").textContent = `$${Math.round((ticker_max[0][1]*ticker_qty - ticker_inv[0]), 2)}`
+document.getElementById('min-return_date').textContent = `Divestment Date: ${ticker_max[0][0]}`
+
+//=====Min Investment values=====
+const Actual_inv = data_ticker.dataset_data.data.filter(d => d[0] == inv_enddate ) 
+document.getElementById("act-return").textContent = `$${Math.round((Actual_inv[0][1]*ticker_qty - ticker_inv[0]), 2)}`
+document.getElementById('act-return_date').textContent = `Divestment Date: ${inv_enddate}`
+// console.log(ticker_max[0][1])
+// console.log(document.getElementById("max-return"))
+// console.log(document.getElementById("max-return_date").textContent)
+//var open_gold_recession = data_gold.dataset_data.data.filter(d => d[0] == open_recession)
+//var close_gold_recession = data_gold.dataset_data.data.filter(d => d[0] == close_recession)
+    });
+  });
+};
 
 
 
 /*=================================================================
           ON CHANGE PROCESSING
 ===================================================================*/
-function processSubmit() {
+function processSubmit_stress() {
   // console.log('test');
 
-  ticker = document.getElementsByClassName('token-input-token')[0].innerText.replace('×', '').replace('\n', '').trim();
-  daterange = document.getElementsByClassName('drp-selected')[0].innerText.split(" - ")
-  start_split_date = daterange[0].split("/")
-  startdate = `${start_split_date[2]}-${start_split_date[0]}-${start_split_date[1]}`
+  var ticker = document.getElementsByClassName('token-input-token')[0].innerText.replace('×', '').replace('\n', '').trim();
+  var daterange = document.getElementsByClassName('drp-selected')[0].innerText.split(" - ")
+  var start_split_date = daterange[0].split("/")
+  var startdate = `${start_split_date[2]}-${start_split_date[0]}-${start_split_date[1]}`
 
-  end_split_date = daterange[1].split("/")
-  enddate = `${end_split_date[2]}-${end_split_date[0]}-${end_split_date[1]}`
+  var end_split_date = daterange[1].split("/")
+  var enddate = `${end_split_date[2]}-${end_split_date[0]}-${end_split_date[1]}`
 
-  amount = document.getElementById('val-number').value
+  var amount = document.getElementById('val-number').value
   console.log(amount)
 
-  gold(ticker, String(startdate), String(enddate), amount)
-  console.log(`ProcessSubmit is running`)
+  gold_stress(ticker, String(startdate), String(enddate), amount)
+  // console.log(`ProcessSubmit is running`)
+  Invest(ticker, String(startdate), String(enddate), amount)
 
 
 }
 
-document.getElementById('submit').addEventListener('click', processSubmit);
+document.getElementById('submit').addEventListener('click', processSubmit_stress);
 
 /*=================================================================
            ON CHANGE PROCESSING ---- ENDS

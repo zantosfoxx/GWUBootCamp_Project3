@@ -19,7 +19,7 @@ function build_oil_Plot() {
 
                 misery_date = dataMisery.map(d =>moment(d.Date).format("YYYY-MM-DD"))
                 misery_values = dataMisery.map(d => d['Misery Index'])
-console.log( prime_date)
+
             
 
                 var selectorOptions = {

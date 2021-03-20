@@ -18,13 +18,13 @@ function Initialize() {
   var  inv_enddate = `2020-02-05`
   
   
-  buildPlot(ticker, inv_startdate, inv_enddate, value)
+  candle(ticker, inv_startdate, inv_enddate, value)
  
   //console.log(`Initialise is running`)
 };
 Initialize();
 
-function buildPlot(ticker, inv_startdate, inv_enddate, value) {
+function candle(ticker, inv_startdate, inv_enddate, value) {
   var apiKey = "wJwp9NFb-QWNy3d1f9_w";
 
   var ticker_url = `https://www.quandl.com/api/v3/datasets/EOD/${ticker}/data.json?api_key=wJwp9NFb-QWNy3d1f9_w&start_date=${inv_startdate}&end_date=${inv_enddate}&order=asc`
@@ -128,22 +128,22 @@ function buildPlot(ticker, inv_startdate, inv_enddate, value) {
 function processSubmit() {
   // console.log('test');
 
-  ticker = document.getElementsByClassName('token-input-token')[0].innerText.replace('×', '').replace('\n', '').trim();
-  daterange = document.getElementsByClassName('drp-selected')[0].innerText.split(" - ")
-  start_split_date = daterange[0].split("/")
-  startdate = `${start_split_date[2]}-${start_split_date[0]}-${start_split_date[1]}`
+  var ticker = document.getElementsByClassName('token-input-token')[0].innerText.replace('×', '').replace('\n', '').trim();
+  var daterange = document.getElementsByClassName('drp-selected')[0].innerText.split(" - ")
+  var start_split_date = daterange[0].split("/")
+  var startdate = `${start_split_date[2]}-${start_split_date[0]}-${start_split_date[1]}`
 
-  end_split_date = daterange[1].split("/")
-  enddate = `${end_split_date[2]}-${end_split_date[0]}-${end_split_date[1]}`
+  var end_split_date = daterange[1].split("/")
+  var enddate = `${end_split_date[2]}-${end_split_date[0]}-${end_split_date[1]}`
 
-  amount = document.getElementById('val-number').value
+  var amount = document.getElementById('val-number').value
  
 
   
-  buildPlot(ticker, String(startdate), String(enddate), amount)
+  candle(ticker, String(startdate), String(enddate), amount)
 
 
-  console.log(`ProcessSubmit is running`)
+  // console.log(`ProcessSubmit is running`)
 
 
 

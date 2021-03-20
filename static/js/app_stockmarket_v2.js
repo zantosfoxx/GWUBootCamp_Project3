@@ -1,11 +1,11 @@
 var api_key = "wJwp9NFb-QWNy3d1f9_w";
 
 // Placeholder:
-//var start_date = "2015-01-01";
-//var end_date = "2020-01-01";
+var start_date_stock = "2015-01-01";
+var end_date_stock = "2020-01-01";
 
 // Dates
-var dateSelection = ["2000-01-01", "2001-01-01", "2002-01-01", "2003-01-01", "2004-01-01", "2005-01-01", 
+var dateSelectionStock = ["2000-01-01", "2001-01-01", "2002-01-01", "2003-01-01", "2004-01-01", "2005-01-01", 
                      "2006-01-01", "2007-01-01", "2008-01-01", "2009-01-01", "2010-01-01", 
                      "2011-01-01", "2012-01-01", "2013-01-01", "2014-01-01", "2015-01-01", "2016-01-01", 
                      "2017-01-01", "2018-01-01", "2019-01-01", "2020-01-01",  "2021-01-01"]
@@ -18,12 +18,12 @@ var stock2 = "AMZN"
 // ********************************************
 // *********** Date Dropdown  **************
 // ********************************************
-for (let date of dateSelection) {
+for (let date of dateSelectionStock) {
     var date1 = d3.select("#start_date")
     var start_date_stock = date1.append('option').append('value').text(date)
 }
 
-for (let date of dateSelection) {
+for (let date of dateSelectionStock) {
     var date2 = d3.select("#end_date")
     var end_date_stock = date2.append('option').append('value').text(date)
 }
@@ -49,11 +49,10 @@ end_date_holder.on("change", valueEndDate)
 
 // ************* Grab Value Functions  *****************
 function valueStartDate() {
-    var start_date_stock = d3.select("#start_date").property("value")
+    start_date_stock = d3.select("#start_date").property("value")
     console.log(start_date_stock)
     return start_date_stock
 }
-console.log(start_date_stock)
 
 function valueEndDate() {
     end_date_stock = d3.select("#end_date").property("value")
@@ -184,6 +183,7 @@ selector4.on("change", valueStockTwo)
 // ****************************************
 
 function handleSubmit() {
+    console.log("Plot Button responds.")
     // Prevent the page from refreshing
     Plotly.d3.event.preventDefault();
   
@@ -271,13 +271,10 @@ function buildStockPlot(stock1, stock2) {
     
     // EOD API
     var url1 = `https://www.quandl.com/api/v3/datasets/EOD/${stock1}.json?start_date=${start_date_stock}&api_key=${api_key}`; 
-    var url2 = `https://www.quandl.com/api/v3/datasets/EOD/${stock2}.json?start_date=${start_date_stock}&api_key=${api_key}`;
-    console.log(start_date_stock) 
-    console.log(url2)
+    var url2 = `https://www.quandl.com/api/v3/datasets/EOD/${stock2}.json?start_date=${start_date_stock}&api_key=${api_key}`; 
 
-    // var url1 = `https://www.quandl.com/api/v3/datasets/EOD/${stock1}.json?start_date=${start_date}&end_date=${end_date}&api_key=${api_key}`; 
-    // var url2 = `https://www.quandl.com/api/v3/datasets/EOD/${stock2}.json?start_date=${start_date}&end_date=${end_date}&api_key=${api_key}`; 
-
+    // console.log(url1)
+    // console.log(start_date)
 
     Plotly.d3.json(url1, function(err1, response1) {
 
@@ -293,8 +290,8 @@ function buildStockPlot(stock1, stock2) {
         var stockName2 = name2.slice(0, -35)
         var stock1 = response1.dataset.dataset_code;
         var stock2 = response2.dataset.dataset_code;
-        var startDate = response1.dataset.start_date;
-        var endDate = response1.dataset.end_date;
+        var startDateStock = response1.dataset.start_date;
+        var endDateStock = response1.dataset.end_date;
         var dates = unpack(response1.dataset.data, 0);
         var closingPrices1 = unpack(response1.dataset.data, 1);
         var closingPrices2 = unpack(response2.dataset.data, 1);
@@ -393,7 +390,7 @@ function buildStockPlot(stock1, stock2) {
         var duallayout = {
             title: `${stock1} ${stock2} Comparison Plot`,
             xaxis: {
-                range: [startDate, endDate],
+                range: [startDateStock, endDateStock],
                 rangeselector: selectorOptions,
                 rangeslider: {},
                 type: "date"
