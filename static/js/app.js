@@ -432,8 +432,12 @@ document.getElementById('submit').addEventListener('click', processSubmit_app);
 
 
 
-
-
+/* ACTIVATE CHARTS ON TABS */
+// force a click event
+comparison_tab = document.getElementById('comparison-tab');
+evObj = document.createEvent('Events');
+evObj.initEvent('click', true, false);
+comparison_tab.dispatchEvent(evObj);
 
 
 

@@ -212,6 +212,9 @@ a:hover,a:focus{
   letter-spacing: 1px;
   margin: 0 0 7px 0;
 }
+
+
+
 @media only screen and (max-width: 479px){
   .tab .nav-tabs li{ width: 100%; }
   .tab .nav-tabs li a{ margin: 0 0 10px; }

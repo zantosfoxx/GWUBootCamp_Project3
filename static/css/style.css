@@ -4768,8 +4768,8 @@ a.close.disabled {
     clear: both;
     content: ""; }
 
-.carousel-item {
-  position: relative;
+.carousel-item img{
+  /* position: relative;
   display: none;
   float: left;
   width: 100%;
@@ -4777,41 +4777,46 @@ a.close.disabled {
   backface-visibility: hidden;
   transition: transform 0.6s ease-in-out; }
   @media (prefers-reduced-motion: reduce) {
-    .carousel-item {
-      transition: none; } }
+    .carousel-item-x {
+      transition: none; } } */
+  max-height: 250px;
+  width: auto;
+  min-width: auto;
+  object-fit: cover;
+}
 
-.carousel-item.active,
-.carousel-item-next,
-.carousel-item-prev {
+.carousel-item-x.active,
+.carousel-item-x-next,
+.carousel-item-x-prev {
   display: block; }
 
-.carousel-item-next:not(.carousel-item-left),
-.active.carousel-item-right {
+.carousel-item-x-next:not(.carousel-item-x-left),
+.active.carousel-item-x-right {
   transform: translateX(100%); }
 
-.carousel-item-prev:not(.carousel-item-right),
-.active.carousel-item-left {
+.carousel-item-x-prev:not(.carousel-item-x-right),
+.active.carousel-item-x-left {
   transform: translateX(-100%); }
 
-.carousel-fade .carousel-item {
+.carousel-fade .carousel-item-x {
   opacity: 0;
   transition-property: opacity;
   transform: none; }
 
-.carousel-fade .carousel-item.active,
-.carousel-fade .carousel-item-next.carousel-item-left,
-.carousel-fade .carousel-item-prev.carousel-item-right {
+.carousel-fade .carousel-item-x.active,
+.carousel-fade .carousel-item-x-next.carousel-item-x-left,
+.carousel-fade .carousel-item-x-prev.carousel-item-x-right {
   z-index: 1;
   opacity: 1; }
 
-.carousel-fade .active.carousel-item-left,
-.carousel-fade .active.carousel-item-right {
+.carousel-fade .active.carousel-item-x-left,
+.carousel-fade .active.carousel-item-x-right {
   z-index: 0;
   opacity: 0;
   transition: 0s 0.6s opacity; }
   @media (prefers-reduced-motion: reduce) {
-    .carousel-fade .active.carousel-item-left,
-    .carousel-fade .active.carousel-item-right {
+    .carousel-fade .active.carousel-item-x-left,
+    .carousel-fade .active.carousel-item-x-right {
       transition: none; } }
 
 .carousel-control-prev,
