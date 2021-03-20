@@ -308,7 +308,7 @@ function Invest(ticker, inv_startdate, inv_enddate, value) {
 //console.log(document.getElementById("fa-usd"))
 
 // Initial Investment
-console.log(`Investment update is running`)
+// console.log(`Investment update is running`)
 document.getElementById("invest-amount").textContent = `$${Math.round((ticker_inv[0]), 2)}`
 document.getElementById('investment').textContent = `Investment Date: ${inv_startdate}`
 
@@ -322,7 +322,7 @@ document.getElementById('max-return_date').textContent = `Divestment Date: ${tic
 
 
 // console.log(ticker_max)
-console.log(Math.round((ticker_max[0][1]), 2))
+// console.log(Math.round((ticker_max[0][1]), 2))
 
 //=====Min Investment values=====
 const minValueOfY = Math.min.apply(Math, data_ticker.dataset_data.data.map(function(o) { return o[1]; }))
@@ -363,7 +363,7 @@ function processSubmit_stress() {
   console.log(amount)
 
   gold_stress(ticker, String(startdate), String(enddate), amount)
-  console.log(`ProcessSubmit is running`)
+  // console.log(`ProcessSubmit is running`)
   Invest(ticker, String(startdate), String(enddate), amount)
 
 

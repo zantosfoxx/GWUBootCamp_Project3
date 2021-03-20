@@ -82,6 +82,10 @@
   height: 30em;
   fill-rule: inherit;
 }
+.stats_sum {
+  font-size: 50%;
+ 
+}
 
 .gradient_one {
   background-image: linear-gradient(to right, rgba(186, 1, 181, 0.85) 0%, rgba(103, 25, 255, 0.85) 100%); }
@@ -3570,10 +3574,10 @@ input[type="button"].btn-block {
   .card > .list-group:last-child .list-group-item:last-child {
     border-bottom-right-radius: 0.25rem;
     border-bottom-left-radius: 0.25rem; }
-.card_panel{
+#card_panel{
 
-padding-left:  10%; 
-padding-right: 10%;
+padding-left:  2%; 
+padding-right: 2%;
 padding-top : 5%;
 padding-top: 5% ;
 }
@@ -3587,7 +3591,7 @@ padding-top: 5% ;
 
   .card-body2 {
     flex: 1 1 auto;
-    padding: 1rem;
+    padding: 1%;
   }
 
 

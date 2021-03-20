@@ -179,7 +179,7 @@ function processSubmit_analyse() {
   api_call = `/ticker_test?start_date=${startdate}&end_date=${enddate}&ticker=${ticker}`
 
   d3.json(api_call).then(data => {
-    console.log(data);
+    //console.log(data);
     volatility_analyse(ticker, api_call)
   });
 

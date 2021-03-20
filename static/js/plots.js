@@ -143,7 +143,7 @@ function processSubmit() {
   candle(ticker, String(startdate), String(enddate), amount)
 
 
-  console.log(`ProcessSubmit is running`)
+  // console.log(`ProcessSubmit is running`)
 
 
 
